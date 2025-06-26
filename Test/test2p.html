@@ -6,35 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
+      --lego-yellow: #ffe600;
+      --lego-red: #ff5f5f;
+      --lego-blue: #4fc3f7;
+      --lego-green: #81c784;
+      --lego-darkblue: #153e7e;
       --main-bg: #f8fafc;
-      --accent: #ffce00;
-      --accent2: #ff5f5f;
-      --accent3: #4fc3f7;
-      --accent4: #81c784;
-      --text-main: #333;
+      --section-bg: #fff;
       --block-shadow: 0 4px 12px rgba(200,200,200,0.18);
     }
     body {
-      font-family: 'Segoe UI', 'Yu Gothic', 'Meiryo', sans-serif;
+      font-family: 'Segoe UI', 'Arial Rounded MT Bold', 'Yu Gothic', 'Meiryo', sans-serif;
       background: var(--main-bg);
-      color: var(--text-main);
+      color: var(--lego-darkblue);
       margin: 0;
       padding: 0;
     }
     header {
-      background: linear-gradient(90deg, var(--accent) 60%, var(--accent3) 100%);
-      color: #fff;
+      background: linear-gradient(90deg, var(--lego-yellow) 60%, var(--lego-blue) 100%);
+      color: var(--lego-darkblue);
       text-align: center;
       padding: 2em 1em 1.2em 1em;
       border-radius: 0 0 2em 2em;
       box-shadow: var(--block-shadow);
       position: relative;
+      letter-spacing: 0.02em;
     }
     header h1 {
-      font-family: 'Arial Rounded MT Bold','Yu Gothic',sans-serif;
+      font-family: 'Arial Black','Arial Rounded MT Bold','Yu Gothic',sans-serif;
       font-size: 2em;
       margin: 0 0 0.4em 0;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-shadow: 2px 2px 0 #fff8, 4px 4px 0 #ffce0033;
     }
     header .subtitle {
@@ -51,17 +53,17 @@
       vertical-align: middle;
       box-shadow: 0 2px 4px #bbb8;
     }
-    .dot-yellow { background: #ffe600; border: 2px solid #ffb700;}
-    .dot-red { background: #ff5f5f; border: 2px solid #ff1744;}
-    .dot-blue { background: #4fc3f7; border: 2px solid #0288d1;}
-    .dot-green { background: #81c784; border: 2px solid #388e3c;}
+    .dot-yellow { background: var(--lego-yellow); border: 2px solid #ffb700;}
+    .dot-red { background: var(--lego-red); border: 2px solid #ff1744;}
+    .dot-blue { background: var(--lego-blue); border: 2px solid #0288d1;}
+    .dot-green { background: var(--lego-green); border: 2px solid #388e3c;}
     .container {
       max-width: 540px;
       margin: 2em auto;
       padding: 0 1em;
     }
     section {
-      background: #fff;
+      background: var(--section-bg);
       border-radius: 1.2em;
       margin-bottom: 1.7em;
       box-shadow: var(--block-shadow);
@@ -71,7 +73,7 @@
     }
     section h2 {
       font-size: 1.2em;
-      color: var(--accent2);
+      color: var(--lego-red);
       margin: 0 0 0.7em 0;
       letter-spacing: 0.04em;
       font-weight: bold;
@@ -95,7 +97,7 @@
       border: none;
     }
     .schedule-table th {
-      color: var(--accent3);
+      color: var(--lego-blue);
       font-weight: bold;
       background: #e3f2fd;
       border-radius: 0.7em 0.7em 0 0;
@@ -115,7 +117,7 @@
     }
     .memo {
       background: #fffde7;
-      border-left: 5px solid var(--accent);
+      border-left: 5px solid var(--lego-yellow);
       border-radius: 0.5em;
       padding: 0.7em 1em;
       margin-bottom: 0.5em;
@@ -145,19 +147,61 @@
     }
     .advice {
       background: #e3f2fd;
-      border-left: 5px solid var(--accent3);
+      border-left: 5px solid var(--lego-blue);
       border-radius: 0.6em;
       padding: 1em 1em 1em 1.2em;
       margin-bottom: 2em;
       font-size: 1em;
       color: #1976d2;
     }
+    /* 持ち物リスト */
+    .packing-section {
+      background: #e8f5e9;
+      border-radius: 1.2em;
+      box-shadow: var(--block-shadow);
+      padding: 1.2em 1em 1em 1em;
+      margin-bottom: 1.7em;
+      border: 2.5px solid var(--lego-green);
+    }
+    .packing-section h2 {
+      color: var(--lego-green);
+      font-size: 1.15em;
+      margin-bottom: 0.8em;
+      letter-spacing: 0.04em;
+    }
+    .packing-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .packing-list li {
+      background: #fff;
+      border-radius: 1.2em;
+      box-shadow: 0 2px 6px #b3c6e7;
+      margin: 0.4em 0.6em 0.4em 0;
+      padding: 0.6em 1em 0.6em 0.8em;
+      font-size: 1em;
+      color: var(--lego-darkblue);
+      display: flex;
+      align-items: center;
+      flex-basis: 48%;
+      min-width: 140px;
+      max-width: 98%;
+    }
+    .packing-list .icon {
+      margin-right: 0.5em;
+      font-size: 1.2em;
+      flex-shrink: 0;
+    }
     @media (max-width: 480px) {
       header h1 { font-size: 1.25em; }
       .container { padding: 0 0.2em; }
-      section { padding: 1em 0.4em 0.8em 0.4em; }
+      section, .packing-section { padding: 1em 0.4em 0.8em 0.4em; }
       .schedule-table th, .schedule-table td { font-size: 0.98em; }
       .cost-table th, .cost-table td { font-size: 0.96em; }
+      .packing-list li { font-size: 0.97em; min-width: 110px; }
     }
   </style>
 </head>
@@ -187,9 +231,6 @@
         <tr><td>19:00</td><td><span class="emoji">🍽️</span>夕食：サガミ（金城ふ頭店）</td></tr>
         <tr><td>21:00</td><td><span class="emoji">🛏️</span>就寝（レゴランドホテル泊）</td></tr>
       </table>
-      <div class="memo">
-        持ち物：水着・タオル、ホテル予約確認書、旅行保険証券
-      </div>
     </section>
     <section>
       <h2>7月19日（土）</h2>
@@ -204,9 +245,6 @@
         <tr><td>20:30</td><td><span class="emoji">🏨</span>湯の山温泉ホテル チェックイン</td></tr>
         <tr><td>22:00</td><td><span class="emoji">🛏️</span>就寝（湯の山温泉ホテル泊）</td></tr>
       </table>
-      <div class="memo">
-        持ち物：レゴランド入園チケット、ひつまぶし中庄予約確認、温泉セット、充電器
-      </div>
     </section>
     <section>
       <h2>7月20日（日）</h2>
@@ -220,9 +258,23 @@
         <tr><td>15:30</td><td><span class="emoji">🏠</span>神戸到着・荷下ろし</td></tr>
         <tr><td>18:30</td><td><span class="emoji">🍴</span>夕食（自宅近くで軽めに外食）</td></tr>
       </table>
-      <div class="memo">
-        持ち物：汚れても良い服、陶芸体験予約確認、お土産リスト
-      </div>
+    </section>
+    <section class="packing-section">
+      <h2>持ち物リスト</h2>
+      <ul class="packing-list">
+        <li><span class="icon">📱</span>スマホ</li>
+        <li><span class="icon">🔋</span>モバイルバッテリー</li>
+        <li><span class="icon">🔌</span>充電器</li>
+        <li><span class="icon">👚</span>着替え</li>
+        <li><span class="icon">💊</span>酔い止め</li>
+        <li><span class="icon">👛</span>財布（現金・クレジットカード・身分証）</li>
+        <li><span class="icon">🪪</span>健康保険証（コピー可）</li>
+        <li><span class="icon">🩱</span>水着</li>
+        <li><span class="icon">🩴</span>サンダル</li>
+        <li><span class="icon">🧻</span>タオル</li>
+        <li><span class="icon">🌂</span>雨具（折りたたみ傘など）</li>
+        <li><span class="icon">🎨</span>陶芸用の汚れてもいい服</li>
+      </ul>
     </section>
     <section>
       <h2>費用一覧</h2>
