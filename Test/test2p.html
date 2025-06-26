@@ -14,6 +14,7 @@
       --main-bg: #f8fafc;
       --section-bg: #fff;
       --block-shadow: 0 4px 12px rgba(200,200,200,0.18);
+      --card-shadow: 0 2px 8px #b3c6e7;
     }
     body {
       font-family: 'Segoe UI', 'Arial Rounded MT Bold', 'Yu Gothic', 'Meiryo', sans-serif;
@@ -86,34 +87,38 @@
       font-size: 1.3em;
       vertical-align: middle;
     }
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
+    /* カード風スケジュール */
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7em;
       margin-bottom: 0.7em;
+      padding: 0;
+      list-style: none;
     }
-    .schedule-table th, .schedule-table td {
-      padding: 0.6em 0.3em;
+    .card-item {
+      background: linear-gradient(90deg, #fff 70%, #e3f2fd 100%);
+      border-radius: 1em;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: flex-start;
+      padding: 0.7em 1em;
+      gap: 1em;
       font-size: 1em;
-      border: none;
+      border-left: 6px solid var(--lego-yellow);
+      position: relative;
     }
-    .schedule-table th {
-      color: var(--lego-blue);
+    .card-item .time {
       font-weight: bold;
-      background: #e3f2fd;
-      border-radius: 0.7em 0.7em 0 0;
-      text-align: left;
-      font-size: 1em;
+      color: var(--lego-blue);
+      min-width: 3.5em;
+      font-size: 1.05em;
+      flex-shrink: 0;
     }
-    .schedule-table td {
-      border-bottom: 1px solid #f2f2f2;
-      vertical-align: top;
-    }
-    .schedule-table tr:last-child td {
-      border-bottom: none;
-    }
-    .emoji {
-      font-size: 1.15em;
-      margin-right: 0.3em;
+    .card-item .emoji {
+      font-size: 1.3em;
+      margin-right: 0.4em;
+      flex-shrink: 0;
     }
     .memo {
       background: #fffde7;
@@ -124,26 +129,53 @@
       font-size: 0.98em;
       color: #b28900;
     }
+    .cost-table, .cost-table th, .cost-table td {
+      border: none;
+    }
     .cost-table {
       width: 100%;
-      border-collapse: collapse;
       margin: 1em 0 0.5em 0;
       font-size: 0.99em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7em;
     }
-    .cost-table th, .cost-table td {
-      padding: 0.5em 0.3em;
-      border-bottom: 1px solid #f2f2f2;
-      text-align: left;
+    .cost-card {
+      background: linear-gradient(90deg, #fff 70%, #e8f5e9 100%);
+      border-radius: 1em;
+      box-shadow: var(--card-shadow);
+      padding: 0.8em 1.1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2em;
+      border-left: 6px solid var(--lego-green);
+      position: relative;
     }
-    .cost-table th {
-      background: #f8bbd0;
-      color: #ad1457;
+    .cost-card .cost-title {
       font-weight: bold;
+      color: var(--lego-green);
+      font-size: 1.05em;
+      margin-bottom: 0.1em;
     }
-    .cost-table td.total {
-      background: #fff9c4;
+    .cost-card .cost-detail {
+      color: #555;
+      font-size: 0.98em;
+      margin-bottom: 0.1em;
+    }
+    .cost-card .cost-amount {
       color: #e65100;
       font-weight: bold;
+      font-size: 1.1em;
+      margin-top: 0.1em;
+    }
+    .cost-card.total {
+      background: linear-gradient(90deg, #fffde7 70%, #fff9c4 100%);
+      border-left: 6px solid var(--lego-yellow);
+      color: #e65100;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 16px #ffe60044;
     }
     .advice {
       background: #e3f2fd;
@@ -199,8 +231,7 @@
       header h1 { font-size: 1.25em; }
       .container { padding: 0 0.2em; }
       section, .packing-section { padding: 1em 0.4em 0.8em 0.4em; }
-      .schedule-table th, .schedule-table td { font-size: 0.98em; }
-      .cost-table th, .cost-table td { font-size: 0.96em; }
+      .card-item, .cost-card { padding: 0.7em 0.7em; font-size: 0.98em; }
       .packing-list li { font-size: 0.97em; min-width: 110px; }
     }
   </style>
@@ -221,43 +252,40 @@
   <div class="container">
     <section>
       <h2>7月18日（金）</h2>
-      <table class="schedule-table">
-        <tr><th>時間</th><th>スケジュール</th></tr>
-        <tr><td>13:00</td><td><span class="emoji">🚗</span>神戸出発（自家用車）</td></tr>
-        <tr><td>14:30</td><td><span class="emoji">🍜</span>SAで昼食（うどん・丼など）</td></tr>
-        <tr><td>15:30</td><td><span class="emoji">🅿️</span>金城ふ頭駐車場到着</td></tr>
-        <tr><td>16:00</td><td><span class="emoji">🏨</span>レゴランドホテル チェックイン</td></tr>
-        <tr><td>16:30</td><td><span class="emoji">💦</span>ホテルの水遊び場で遊ぶ（事前予約制）</td></tr>
-        <tr><td>19:00</td><td><span class="emoji">🍽️</span>夕食：サガミ（金城ふ頭店）</td></tr>
-        <tr><td>21:00</td><td><span class="emoji">🛏️</span>就寝（レゴランドホテル泊）</td></tr>
-      </table>
+      <ul class="card-list">
+        <li class="card-item"><span class="time">13:00</span><span class="emoji">🚗</span>神戸出発（自家用車）</li>
+        <li class="card-item"><span class="time">14:30</span><span class="emoji">🍜</span>SAで昼食（うどん・丼など）</li>
+        <li class="card-item"><span class="time">15:30</span><span class="emoji">🅿️</span>金城ふ頭駐車場到着</li>
+        <li class="card-item"><span class="time">16:00</span><span class="emoji">🏨</span>レゴランドホテル チェックイン</li>
+        <li class="card-item"><span class="time">16:30</span><span class="emoji">💦</span>ホテルの水遊び場で遊ぶ（事前予約制）</li>
+        <li class="card-item"><span class="time">19:00</span><span class="emoji">🍽️</span>夕食：サガミ（金城ふ頭店）</li>
+        <li class="card-item"><span class="time">21:00</span><span class="emoji">🛏️</span>就寝（レゴランドホテル泊）</li>
+      </ul>
     </section>
     <section>
       <h2>7月19日（土）</h2>
-      <table class="schedule-table">
-        <tr><th>時間</th><th>スケジュール</th></tr>
-        <tr><td>07:30</td><td><span class="emoji">🍳</span>朝食（ホテルビュッフェ）</td></tr>
-        <tr><td>09:00</td><td><span class="emoji">🎡</span>レゴランド入園・園内で自由行動</td></tr>
-        <tr><td>12:00</td><td><span class="emoji">🍔</span>昼食（園内レストラン）</td></tr>
-        <tr><td>17:00</td><td><span class="emoji">🧳</span>ホテルで荷物ピックアップ・チェックアウト</td></tr>
-        <tr><td>17:30</td><td><span class="emoji">🚗</span>四日市へ車で移動</td></tr>
-        <tr><td>19:00</td><td><span class="emoji">🍚</span>夕食：ひつまぶし中庄（要予約）</td></tr>
-        <tr><td>20:30</td><td><span class="emoji">🏨</span>湯の山温泉ホテル チェックイン</td></tr>
-        <tr><td>22:00</td><td><span class="emoji">🛏️</span>就寝（湯の山温泉ホテル泊）</td></tr>
-      </table>
+      <ul class="card-list">
+        <li class="card-item"><span class="time">07:30</span><span class="emoji">🍳</span>朝食（ホテルビュッフェ）</li>
+        <li class="card-item"><span class="time">09:00</span><span class="emoji">🎡</span>レゴランド入園・園内で自由行動</li>
+        <li class="card-item"><span class="time">12:00</span><span class="emoji">🍔</span>昼食（園内レストラン）</li>
+        <li class="card-item"><span class="time">17:00</span><span class="emoji">🧳</span>ホテルで荷物ピックアップ・チェックアウト</li>
+        <li class="card-item"><span class="time">17:30</span><span class="emoji">🚗</span>四日市へ車で移動</li>
+        <li class="card-item"><span class="time">19:00</span><span class="emoji">🍚</span>夕食：ひつまぶし中庄（要予約）</li>
+        <li class="card-item"><span class="time">20:30</span><span class="emoji">🏨</span>湯の山温泉ホテル チェックイン</li>
+        <li class="card-item"><span class="time">22:00</span><span class="emoji">🛏️</span>就寝（湯の山温泉ホテル泊）</li>
+      </ul>
     </section>
     <section>
       <h2>7月20日（日）</h2>
-      <table class="schedule-table">
-        <tr><th>時間</th><th>スケジュール</th></tr>
-        <tr><td>08:00</td><td><span class="emoji">🍳</span>朝食（ホテル）</td></tr>
-        <tr><td>09:00</td><td><span class="emoji">🧳</span>チェックアウト、菰野陶芸村へ出発</td></tr>
-        <tr><td>10:00</td><td><span class="emoji">🎨</span>陶芸体験（手びねり）</td></tr>
-        <tr><td>12:00</td><td><span class="emoji">🍽️</span>昼食（四日市またはSA／とんてきなど）</td></tr>
-        <tr><td>13:00</td><td><span class="emoji">🚗</span>神戸へ帰路出発</td></tr>
-        <tr><td>15:30</td><td><span class="emoji">🏠</span>神戸到着・荷下ろし</td></tr>
-        <tr><td>18:30</td><td><span class="emoji">🍴</span>夕食（自宅近くで軽めに外食）</td></tr>
-      </table>
+      <ul class="card-list">
+        <li class="card-item"><span class="time">08:00</span><span class="emoji">🍳</span>朝食（ホテル）</li>
+        <li class="card-item"><span class="time">09:00</span><span class="emoji">🧳</span>チェックアウト、菰野陶芸村へ出発</li>
+        <li class="card-item"><span class="time">10:00</span><span class="emoji">🎨</span>陶芸体験（手びねり）</li>
+        <li class="card-item"><span class="time">12:00</span><span class="emoji">🍽️</span>昼食（四日市またはSA／とんてきなど）</li>
+        <li class="card-item"><span class="time">13:00</span><span class="emoji">🚗</span>神戸へ帰路出発</li>
+        <li class="card-item"><span class="time">15:30</span><span class="emoji">🏠</span>神戸到着・荷下ろし</li>
+        <li class="card-item"><span class="time">18:30</span><span class="emoji">🍴</span>夕食（自宅近くで軽めに外食）</li>
+      </ul>
     </section>
     <section class="packing-section">
       <h2>持ち物リスト</h2>
@@ -278,16 +306,15 @@
     </section>
     <section>
       <h2>費用一覧</h2>
-      <table class="cost-table">
-        <tr><th>項目</th><th>内容</th><th>金額（円）</th></tr>
-        <tr>
-          <td>宿泊費</td>
-          <td>レゴランドホテル（朝食付）35,000<br>湯の山温泉ホテル（朝食付）30,000</td>
-          <td>65,000</td>
-        </tr>
-        <tr>
-          <td>食費</td>
-          <td>
+      <div class="cost-table">
+        <div class="cost-card">
+          <div class="cost-title">宿泊費</div>
+          <div class="cost-detail">レゴランドホテル（朝食付）35,000<br>湯の山温泉ホテル（朝食付）30,000</div>
+          <div class="cost-amount">65,000円</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-title">食費</div>
+          <div class="cost-detail">
             <b>1日目</b><br>
             ・昼食（SAのうどん・丼）：3,000<br>
             ・夕食（サガミ）：6,000<br>
@@ -300,44 +327,43 @@
             ・昼食（四日市・SA）：3,000<br>
             ・夕食（ファミレス等）：3,000<br>
             <b>おやつ・飲み物など（全日）</b>：2,000～3,000
-          </td>
-          <td>32,000～33,000</td>
-        </tr>
-        <tr>
-          <td>高速料金</td>
-          <td>神戸→名古屋 4,600<br>名古屋→四日市 950<br>四日市→神戸 3,550</td>
-          <td>9,100</td>
-        </tr>
-        <tr>
-          <td>ガソリン代</td>
-          <td>約500km／燃費12km/L・単価180円想定</td>
-          <td>5,800</td>
-        </tr>
-        <tr>
-          <td>レゴランド入園料</td>
-          <td>大人2名 7,400×2＝14,800<br>小学生1名 5,200</td>
-          <td>20,000</td>
-        </tr>
-        <tr>
-          <td>駐車場代</td>
-          <td>金城ふ頭 1,500×2日</td>
-          <td>3,000</td>
-        </tr>
-        <tr>
-          <td>陶芸体験</td>
-          <td>2,000×3名</td>
-          <td>6,000</td>
-        </tr>
-        <tr>
-          <td>雑費・お土産</td>
-          <td>おやつ・おみやげ等</td>
-          <td>5,000</td>
-        </tr>
-        <tr>
-          <th colspan="2">総合計</th>
-          <td class="total">145,900～146,900</td>
-        </tr>
-      </table>
+          </div>
+          <div class="cost-amount">32,000～33,000円</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-title">高速料金</div>
+          <div class="cost-detail">神戸→名古屋 4,600<br>名古屋→四日市 950<br>四日市→神戸 3,550</div>
+          <div class="cost-amount">9,100円</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-title">ガソリン代</div>
+          <div class="cost-detail">約500km／燃費12km/L・単価180円想定</div>
+          <div class="cost-amount">5,800円</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-title">レゴランド入園料</div>
+          <div class="cost-detail">大人2名 7,400×2＝14,800<br>小学生1名 5,200</div>
+          <div class="cost-amount">20,000円</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-title">駐車場代</div>
+          <div class="cost-detail">金城ふ頭 1,500×2日</div>
+          <div class="cost-amount">3,000円</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-title">陶芸体験</div>
+          <div class="cost-detail">2,000×3名</div>
+          <div class="cost-amount">6,000円</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-title">雑費・お土産</div>
+          <div class="cost-detail">おやつ・おみやげ等</div>
+          <div class="cost-amount">5,000円</div>
+        </div>
+        <div class="cost-card total">
+          総合計：145,900～146,900円
+        </div>
+      </div>
     </section>
     <div class="advice">
       <b>アドバイス</b>
