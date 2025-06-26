@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>名古屋・四日市・湯の山温泉 旅行しおり</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --main-bg: #f8fafc;
+      --accent: #ffce00;
+      --accent2: #ff5f5f;
+      --accent3: #4fc3f7;
+      --accent4: #81c784;
+      --text-main: #333;
+      --block-shadow: 0 4px 12px rgba(200,200,200,0.18);
+    }
+    body {
+      font-family: 'Segoe UI', 'Yu Gothic', 'Meiryo', sans-serif;
+      background: var(--main-bg);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, var(--accent) 60%, var(--accent3) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2em 1em 1.2em 1em;
+      border-radius: 0 0 2em 2em;
+      box-shadow: var(--block-shadow);
+      position: relative;
+    }
+    header h1 {
+      font-family: 'Arial Rounded MT Bold','Yu Gothic',sans-serif;
+      font-size: 2em;
+      margin: 0 0 0.4em 0;
+      letter-spacing: 0.06em;
+      text-shadow: 2px 2px 0 #fff8, 4px 4px 0 #ffce0033;
+    }
+    header .subtitle {
+      font-size: 1em;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5em;
+    }
+    .lego-dot {
+      display: inline-block;
+      width: 1.2em;
+      height: 1.2em;
+      border-radius: 50%;
+      margin: 0 0.13em;
+      vertical-align: middle;
+      box-shadow: 0 2px 4px #bbb8;
+    }
+    .dot-yellow { background: #ffe600; border: 2px solid #ffb700;}
+    .dot-red { background: #ff5f5f; border: 2px solid #ff1744;}
+    .dot-blue { background: #4fc3f7; border: 2px solid #0288d1;}
+    .dot-green { background: #81c784; border: 2px solid #388e3c;}
+    .container {
+      max-width: 540px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    section {
+      background: #fff;
+      border-radius: 1.2em;
+      margin-bottom: 1.7em;
+      box-shadow: var(--block-shadow);
+      padding: 1.2em 1em 1em 1em;
+      position: relative;
+      overflow: hidden;
+    }
+    section h2 {
+      font-size: 1.2em;
+      color: var(--accent2);
+      margin: 0 0 0.7em 0;
+      letter-spacing: 0.04em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    section h2::before {
+      content: "🧩";
+      margin-right: 0.4em;
+      font-size: 1.3em;
+      vertical-align: middle;
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 0.7em;
+    }
+    .schedule-table th, .schedule-table td {
+      padding: 0.6em 0.3em;
+      font-size: 1em;
+      border: none;
+    }
+    .schedule-table th {
+      color: var(--accent3);
+      font-weight: bold;
+      background: #e3f2fd;
+      border-radius: 0.7em 0.7em 0 0;
+      text-align: left;
+      font-size: 1em;
+    }
+    .schedule-table td {
+      border-bottom: 1px solid #f2f2f2;
+      vertical-align: top;
+    }
+    .schedule-table tr:last-child td {
+      border-bottom: none;
+    }
+    .emoji {
+      font-size: 1.15em;
+      margin-right: 0.3em;
+    }
+    .memo {
+      background: #fffde7;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.5em;
+      padding: 0.7em 1em;
+      margin-bottom: 0.5em;
+      font-size: 0.98em;
+      color: #b28900;
+    }
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0 0.5em 0;
+      font-size: 0.99em;
+    }
+    .cost-table th, .cost-table td {
+      padding: 0.5em 0.3em;
+      border-bottom: 1px solid #f2f2f2;
+      text-align: left;
+    }
+    .cost-table th {
+      background: #f8bbd0;
+      color: #ad1457;
+      font-weight: bold;
+    }
+    .cost-table td.total {
+      background: #fff9c4;
+      color: #e65100;
+      font-weight: bold;
+    }
+    .advice {
+      background: #e3f2fd;
+      border-left: 5px solid var(--accent3);
+      border-radius: 0.6em;
+      padding: 1em 1em 1em 1.2em;
+      margin-bottom: 2em;
+      font-size: 1em;
+      color: #1976d2;
+    }
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.25em; }
+      .container { padding: 0 0.2em; }
+      section { padding: 1em 0.4em 0.8em 0.4em; }
+      .schedule-table th, .schedule-table td { font-size: 0.98em; }
+      .cost-table th, .cost-table td { font-size: 0.96em; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="lego-dot dot-yellow"></span>
+    <span class="lego-dot dot-red"></span>
+    <span class="lego-dot dot-blue"></span>
+    <span class="lego-dot dot-green"></span>
+    <h1>名古屋・四日市・湯の山温泉<br>旅行しおり</h1>
+    <div class="subtitle">2025年7月18日（金）～7月20日（日）</div>
+    <span class="lego-dot dot-yellow"></span>
+    <span class="lego-dot dot-red"></span>
+    <span class="lego-dot dot-blue"></span>
+    <span class="lego-dot dot-green"></span>
+  </header>
+  <div class="container">
+    <section>
+      <h2>7月18日（金）</h2>
+      <table class="schedule-table">
+        <tr><th>時間</th><th>スケジュール</th></tr>
+        <tr><td>13:00</td><td><span class="emoji">🚗</span>神戸出発（自家用車）</td></tr>
+        <tr><td>14:30</td><td><span class="emoji">🍜</span>SAで昼食（うどん・丼など）<br><span style="color:#bdb76b;">3,000円</span></td></tr>
+        <tr><td>15:30</td><td><span class="emoji">🅿️</span>金城ふ頭駐車場到着（1,500円×2日＝3,000円）</td></tr>
+        <tr><td>16:00</td><td><span class="emoji">🏨</span>レゴランドホテル チェックイン<br><span style="color:#bdb76b;">朝食付き 35,000円</span></td></tr>
+        <tr><td>16:30</td><td><span class="emoji">💦</span>ホテルの水遊び場で遊ぶ（事前予約制）</td></tr>
+        <tr><td>19:00</td><td><span class="emoji">🍽️</span>夕食：サガミ（金城ふ頭店）<br><span style="color:#bdb76b;">6,000円</span></td></tr>
+        <tr><td>21:00</td><td><span class="emoji">🛏️</span>就寝（レゴランドホテル泊）</td></tr>
+      </table>
+      <div class="memo">
+        持ち物：水着・タオル、ホテル予約確認書、旅行保険証券
+      </div>
+    </section>
+    <section>
+      <h2>7月19日（土）</h2>
+      <table class="schedule-table">
+        <tr><th>時間</th><th>スケジュール</th></tr>
+        <tr><td>07:30</td><td><span class="emoji">🍳</span>朝食（ホテルビュッフェ）<br><span style="color:#bdb76b;">宿泊費に含む</span></td></tr>
+        <tr><td>09:00</td><td><span class="emoji">🎡</span>レゴランド入園・園内で自由行動<br><span style="color:#bdb76b;">入園料 13,700円</span></td></tr>
+        <tr><td>12:00</td><td><span class="emoji">🍔</span>昼食（園内レストラン）<br><span style="color:#bdb76b;">5,000円</span></td></tr>
+        <tr><td>17:00</td><td><span class="emoji">🧳</span>ホテルで荷物ピックアップ・チェックアウト</td></tr>
+        <tr><td>17:30</td><td><span class="emoji">🚗</span>四日市へ車で移動<br><span style="color:#bdb76b;">高速 950円</span></td></tr>
+        <tr><td>19:00</td><td><span class="emoji">🍚</span>夕食：ひつまぶし中庄（要予約）<br><span style="color:#bdb76b;">10,000円</span></td></tr>
+        <tr><td>20:30</td><td><span class="emoji">🏨</span>湯の山温泉ホテル チェックイン<br><span style="color:#bdb76b;">朝食付き 30,000円</span></td></tr>
+        <tr><td>22:00</td><td><span class="emoji">🛏️</span>就寝（湯の山温泉ホテル泊）</td></tr>
+      </table>
+      <div class="memo">
+        持ち物：レゴランド入園チケット、ひつまぶし中庄予約確認、温泉セット、充電器
+      </div>
+    </section>
+    <section>
+      <h2>7月20日（日）</h2>
+      <table class="schedule-table">
+        <tr><th>時間</th><th>スケジュール</th></tr>
+        <tr><td>08:00</td><td><span class="emoji">🍳</span>朝食（ホテル）<br><span style="color:#bdb76b;">宿泊費に含む</span></td></tr>
+        <tr><td>09:00</td><td><span class="emoji">🧳</span>チェックアウト、菰野陶芸村へ出発</td></tr>
+        <tr><td>10:00</td><td><span class="emoji">🎨</span>陶芸体験（2,000円×3名＝6,000円）</td></tr>
+        <tr><td>12:00</td><td><span class="emoji">🍽️</span>昼食（四日市またはSA／とんてきなど）<br><span style="color:#bdb76b;">3,000円</span></td></tr>
+        <tr><td>13:00</td><td><span class="emoji">🚗</span>神戸へ帰路出発<br><span style="color:#bdb76b;">高速 3,550円／ガソリン代 5,800円目安</span></td></tr>
+        <tr><td>15:30</td><td><span class="emoji">🏠</span>神戸到着・荷下ろし</td></tr>
+        <tr><td>18:30</td><td><span class="emoji">🍴</span>夕食（自宅近くで軽めに外食）<br><span style="color:#bdb76b;">3,000円</span></td></tr>
+      </table>
+      <div class="memo">
+        持ち物：汚れても良い服、陶芸体験予約確認、お土産リスト
+      </div>
+    </section>
+    <section>
+      <h2>費用一覧</h2>
+      <table class="cost-table">
+        <tr><th>項目</th><th>内容</th><th>金額（円）</th></tr>
+        <tr><td>宿泊費</td><td>レゴランドホテル 35,000 + 湯の山温泉ホテル 30,000</td><td>65,000</td></tr>
+        <tr><td>食費</td><td>昼食・夕食・おやつ等（詳細は日程表参照）</td><td>30,000</td></tr>
+        <tr><td>高速料金</td><td>神戸→名古屋 4,600、名古屋→四日市 950、四日市→神戸 3,550</td><td>9,100</td></tr>
+        <tr><td>ガソリン代</td><td>約500km／燃費12km/L・単価180円想定</td><td>5,800</td></tr>
+        <tr><td>レゴランド入園料</td><td>大人2名 10,200 + 小学生1名 3,500</td><td>13,700</td></tr>
+        <tr><td>駐車場代</td><td>金城ふ頭 1,500円×2日</td><td>3,000</td></tr>
+        <tr><td>陶芸体験</td><td>2,000円×3名</td><td>6,000</td></tr>
+        <tr><td>雑費・お土産</td><td>おやつ・おみやげ等</td><td>5,000</td></tr>
+        <tr><th colspan="2">総合計</th><td class="total">137,600〜138,600</td></tr>
+      </table>
+    </section>
+    <div class="advice">
+      <b>アドバイス</b>
+      <ul>
+        <li>連休や週末は混雑しやすいので、移動・食事は余裕をもって。</li>
+        <li>レゴランドや飲食店の予約・チケットは事前確保が安心。</li>
+        <li>現地での追加支出に備え、予備費3,000〜5,000円程度を用意。</li>
+        <li>各施設の予約内容・営業時間・アクセス方法を事前に再確認しましょう。</li>
+      </ul>
+      <span style="font-size:1.1em;">楽しいご旅行を！🧡</span>
+    </div>
+  </div>
+</body>
+</html>
