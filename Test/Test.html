@@ -1,1 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏の家族旅行しおり</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .highlight-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .day-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 8px solid;
+        }
+        
+        .day1 { border-left-color: #ff6b6b; }
+        .day2 { border-left-color: #4ecdc4; }
+        .day3 { border-left-color: #45b7d1; }
+        
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .day-emoji {
+            font-size: 3em;
+            margin-right: 20px;
+        }
+        
+        .day-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .day-subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .schedule-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .schedule-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .time {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 20px;
+            font-size: 0.9em;
+        }
+        
+        .activity {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .activity-desc {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-card h3::before {
+            content: "🎯";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .checklist {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .checklist h4 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .checklist-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        .cost-table {
+            background: #e8f5e8;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .cost-table h4 {
+            color: #2d5a2d;
+            margin-bottom: 15px;
+        }
+        
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #c8e6c9;
+        }
+        
+        .cost-row:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            color: #2d5a2d;
+        }
+        
+        .photo-spots {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .photo-spots h4 {
+            color: #2d3436;
+            margin-bottom: 15px;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .photo-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .footer h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .emergency-info {
+            background: #ffebee;
+            border: 2px solid #ef5350;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .emergency-info h4 {
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .day-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .day-emoji {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+            }
+            
+            .time {
+                margin-right: 0;
+                margin-bottom: 10px;
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎪 夏の家族旅行 完全ガイド</h1>
+            <div class="subtitle">
+                <strong>2025年7月18日（金）〜7月20日（日）</strong><br>
+                神戸 ⇄ 名古屋・四日市 2泊3日の旅
+            </div>
+        </header>
 
+        <div class="highlight-section">
+            <h2 style="color: #ff6b6b; margin-bottom: 20px; font-size: 1.5em;">🌟 旅のハイライト</h2>
+            <p style="font-size: 1.1em; line-height: 1.8;">
+                レゴの世界で遊び、名古屋グルメを味わい、温泉でリラックス、そして陶芸で思い出作り。
+                家族みんなで楽しめる盛りだくさんの3日間です！
+            </p>
+        </div>
+
+        <div class="day-card day1">
+            <div class="day-header">
+                <div class="day-emoji">🏰</div>
+                <div>
+                    <div class="day-title">Day 1 - 7月18日（金）</div>
+                    <div class="day-subtitle">レゴの世界へ</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">13:00</div>
+                <div class="activity">
+                    <div class="activity-title">🚗 神戸出発</div>
+                    <div class="activity-desc">「いってきます！」の挨拶で旅のスタート</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">14:30</div>
+                <div class="activity">
+                    <div class="activity-title">🍜 SA休憩＆ランチタイム</div>
+                    <div class="activity-desc">運転の疲れを癒しながら、美味しいうどんや丼でエネルギーチャージ</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">15:30</div>
+                <div class="activity">
+                    <div class="activity-title">🅿️ 金城ふ頭駐車場着</div>
+                    <div class="activity-desc">レゴランドのお城が見えてきた！駐車料金：1,500円×2日</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">16:00</div>
+                <div class="activity">
+                    <div class="activity-title">🏨 レゴランドホテル チェックイン</div>
+                    <div class="activity-desc">レゴブロックだらけのロビーにワクワク</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">16:30</div>
+                <div class="activity">
+                    <div class="activity-title">🏊‍♀️ ホテル内プール＆水遊び場</div>
+                    <div class="activity-desc">夏の暑さを吹き飛ばそう！プールサイドでのんびりも◎</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">19:00</div>
+                <div class="activity">
+                    <div class="activity-title">🍽️ サガミで夕食</div>
+                    <div class="activity-desc">家族みんなでほっこり和食タイム。名古屋コーチンもおすすめ</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">21:00</div>
+                <div class="activity">
+                    <div class="activity-title">😴 おやすみタイム</div>
+                    <div class="activity-desc">明日のレゴランドに備えて早めの就寝</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card day2">
+            <div class="day-header">
+                <div class="day-emoji">🎢</div>
+                <div>
+                    <div class="day-title">Day 2 - 7月19日（土）</div>
+                    <div class="day-subtitle">レゴランド大冒険</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">07:30</div>
+                <div class="activity">
+                    <div class="activity-title">🥐 ホテルビュッフェ朝食</div>
+                    <div class="activity-desc">レゴブロック型のパンケーキもあるかも？</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">09:00</div>
+                <div class="activity">
+                    <div class="activity-title">🎡 レゴランド開園と同時に入園</div>
+                    <div class="activity-desc">人気アトラクション攻略！スプラッシュ・バトル、レゴ・シティ・ビーチ・パーティーなど</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">12:00</div>
+                <div class="activity">
+                    <div class="activity-title">🍕 園内ランチ</div>
+                    <div class="activity-desc">ブリックス・ファミリー・レストランで。レゴブロック型ポテトは絶対食べたい！</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">17:30</div>
+                <div class="activity">
+                    <div class="activity-title">🚗 四日市へ移動開始</div>
+                    <div class="activity-desc">レゴのお土産もゲットしたかな？約1時間のドライブ</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">19:00</div>
+                <div class="activity">
+                    <div class="activity-title">🐟 ひつまぶし中庄で夕食</div>
+                    <div class="activity-desc">名古屋名物の本場の味を堪能。正統な4つの食べ方で！</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">20:30</div>
+                <div class="activity">
+                    <div class="activity-title">♨️ 湯の山温泉ホテル到着</div>
+                    <div class="activity-desc">温泉で今日の疲れをじっくり癒そう</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">22:00</div>
+                <div class="activity">
+                    <div class="activity-title">💤 温泉宿でぐっすり</div>
+                    <div class="activity-desc">山の静寂に包まれて深い眠りに</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card day3">
+            <div class="day-header">
+                <div class="day-emoji">🏺</div>
+                <div>
+                    <div class="day-title">Day 3 - 7月20日（日）</div>
+                    <div class="day-subtitle">思い出作りの最終日</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">08:00</div>
+                <div class="activity">
+                    <div class="activity-title">🍚 温泉宿の朝食</div>
+                    <div class="activity-desc">旅館の心のこもった朝ごはん</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">09:00</div>
+                <div class="activity">
+                    <div class="activity-title">🚗 菰野陶芸村へ出発</div>
+                    <div class="activity-desc">チェックアウトして最後のお楽しみへ</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">10:00</div>
+                <div class="activity">
+                    <div class="activity-title">👐 陶芸体験スタート</div>
+                    <div class="activity-desc">手びねり体験：2,000円×3名。世界に一つだけの作品を作ろう</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">12:00</div>
+                <div class="activity">
+                    <div class="activity-title">🍖 四日市名物とんてきランチ</div>
+                    <div class="activity-desc">B級グルメの王様を味わって。厚切り豚肉とニンニクの絶品コンビ</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">13:00</div>
+                <div class="activity">
+                    <div class="activity-title">🏠 神戸へ帰路</div>
+                    <div class="activity-desc">楽しかった思い出を胸に</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">15:30</div>
+                <div class="activity">
+                    <div class="activity-title">🏡 神戸到着</div>
+                    <div class="activity-desc">「ただいま！」お疲れさまでした</div>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="time">18:30</div>
+                <div class="activity">
+                    <div class="activity-title">🍽️ 近所で軽く外食</div>
+                    <div class="activity-desc">旅の余韻を楽しみながら</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>各スポットの楽しみ方</h3>
+                <p><strong>🏰 レゴランドホテル：</strong> エレベーターまでレゴの世界！</p>
+                <p><strong>🎢 レゴランド：</strong> 夏は水系アトラクションが人気</p>
+                <p><strong>♨️ 湯の山温泉：</strong> 鈴鹿山脈の絶景露天風呂</p>
+                <p><strong>🏺 菰野陶芸村：</strong> 手びねりで世界に一つの作品を</p>
+            </div>
+
+            <div class="info-card">
+                <h3>グルメガイド</h3>
+                <p><strong>🍜 サガミ：</strong> ファミリー向け和食、名古屋コーチン</p>
+                <p><strong>🐟 ひつまぶし中庄：</strong> 四日市の老舗うなぎ店</p>
+                <p><strong>🍖 とんてき：</strong> 四日市のソウルフード</p>
+            </div>
+        </div>
+
+        <div class="checklist">
+            <h4>📋 持ち物チェックリスト</h4>
+            <div class="checklist-items">
+                <div class="checklist-item">
+                    <input type="checkbox" id="swimwear">
+                    <label for="swimwear">水着・タオル</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="sunscreen">
+                    <label for="sunscreen">日焼け止め</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="camera">
+                    <label for="camera">カメラ・充電器</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="clothes">
+                    <label for="clothes">着替え（陶芸用含む）</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="medicine">
+                    <label for="medicine">常備薬</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="snacks">
+                    <label for="snacks">お菓子・飲み物</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="cost-table">
+            <h4>💰 概算費用</h4>
+            <div class="cost-row">
+                <span>駐車場代</span>
+                <span>3,000円</span>
+            </div>
+            <div class="cost-row">
+                <span>陶芸体験</span>
+                <span>6,000円</span>
+            </div>
+            <div class="cost-row">
+                <span>高速道路代・ガソリン代</span>
+                <span>別途</span>
+            </div>
+        </div>
+
+        <div class="photo-spots">
+            <h4>📸 写真スポット</h4>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <strong>🏨 レゴランドホテル</strong><br>
+                    ロビーの巨大レゴ作品前
+                </div>
+                <div class="photo-item">
+                    <strong>🎡 レゴランド入口</strong><br>
+                    看板と一緒に家族写真
+                </div>
+                <div class="photo-item">
+                    <strong>♨️ 温泉宿</strong><br>
+                    浴衣姿での記念撮影
+                </div>
+                <div class="photo-item">
+                    <strong>🏺 陶芸体験</strong><br>
+                    作業中の手元ショット
+                </div>
+            </div>
+        </div>
+
+        <div class="emergency-info">
+            <h4>🚨 緊急時連絡先</h4>
+            <p>各ホテルの電話番号をスマホに事前登録をお忘れなく</p>
+            <p>出発前に天気予報・交通情報・予約確認をもう一度チェック！</p>
+        </div>
+
+        <div class="footer">
+            <h3>✨ 素敵な旅になりますように！ ✨</h3>
+            <p>家族の絆がより深まる3日間。子供たちにとっては夏休みの最高の思い出に、<br>
+            大人にとっては日常を忘れてリフレッシュできる特別な時間になるでしょう。</p>
+        </div>
+    </div>
+</body>
+</html>
