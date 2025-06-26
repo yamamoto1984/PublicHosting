@@ -87,7 +87,6 @@
       font-size: 1.3em;
       vertical-align: middle;
     }
-    /* カード風スケジュール */
     .card-list {
       display: flex;
       flex-direction: column;
@@ -120,17 +119,45 @@
       margin-right: 0.4em;
       flex-shrink: 0;
     }
-    .memo {
-      background: #fffde7;
-      border-left: 5px solid var(--lego-yellow);
-      border-radius: 0.5em;
-      padding: 0.7em 1em;
-      margin-bottom: 0.5em;
-      font-size: 0.98em;
-      color: #b28900;
+    .packing-section {
+      background: #e8f5e9;
+      border-radius: 1.2em;
+      box-shadow: var(--block-shadow);
+      padding: 1.2em 1em 1em 1em;
+      margin-bottom: 1.7em;
+      border: 2.5px solid var(--lego-green);
     }
-    .cost-table, .cost-table th, .cost-table td {
-      border: none;
+    .packing-section h2 {
+      color: var(--lego-green);
+      font-size: 1.15em;
+      margin-bottom: 0.8em;
+      letter-spacing: 0.04em;
+    }
+    .packing-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .packing-list li {
+      background: #fff;
+      border-radius: 1.2em;
+      box-shadow: 0 2px 6px #b3c6e7;
+      margin: 0.4em 0.6em 0.4em 0;
+      padding: 0.6em 1em 0.6em 0.8em;
+      font-size: 1em;
+      color: var(--lego-darkblue);
+      display: flex;
+      align-items: center;
+      flex-basis: 48%;
+      min-width: 140px;
+      max-width: 98%;
+    }
+    .packing-list .icon {
+      margin-right: 0.5em;
+      font-size: 1.2em;
+      flex-shrink: 0;
     }
     .cost-table {
       width: 100%;
@@ -186,47 +213,6 @@
       font-size: 1em;
       color: #1976d2;
     }
-    /* 持ち物リスト */
-    .packing-section {
-      background: #e8f5e9;
-      border-radius: 1.2em;
-      box-shadow: var(--block-shadow);
-      padding: 1.2em 1em 1em 1em;
-      margin-bottom: 1.7em;
-      border: 2.5px solid var(--lego-green);
-    }
-    .packing-section h2 {
-      color: var(--lego-green);
-      font-size: 1.15em;
-      margin-bottom: 0.8em;
-      letter-spacing: 0.04em;
-    }
-    .packing-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .packing-list li {
-      background: #fff;
-      border-radius: 1.2em;
-      box-shadow: 0 2px 6px #b3c6e7;
-      margin: 0.4em 0.6em 0.4em 0;
-      padding: 0.6em 1em 0.6em 0.8em;
-      font-size: 1em;
-      color: var(--lego-darkblue);
-      display: flex;
-      align-items: center;
-      flex-basis: 48%;
-      min-width: 140px;
-      max-width: 98%;
-    }
-    .packing-list .icon {
-      margin-right: 0.5em;
-      font-size: 1.2em;
-      flex-shrink: 0;
-    }
     @media (max-width: 480px) {
       header h1 { font-size: 1.25em; }
       .container { padding: 0 0.2em; }
@@ -254,7 +240,7 @@
       <h2>7月18日（金）</h2>
       <ul class="card-list">
         <li class="card-item"><span class="time">13:00</span><span class="emoji">🚗</span>神戸出発（自家用車）</li>
-        <li class="card-item"><span class="time">14:30</span><span class="emoji">🍜</span>SAで昼食（うどん・丼など）</li>
+        <li class="card-item"><span class="time">14:30</span><span class="emoji">🍜</span>サービスエリアで食事</li>
         <li class="card-item"><span class="time">15:30</span><span class="emoji">🅿️</span>金城ふ頭駐車場到着</li>
         <li class="card-item"><span class="time">16:00</span><span class="emoji">🏨</span>レゴランドホテル チェックイン</li>
         <li class="card-item"><span class="time">16:30</span><span class="emoji">💦</span>ホテルの水遊び場で遊ぶ（事前予約制）</li>
@@ -271,8 +257,8 @@
         <li class="card-item"><span class="time">17:00</span><span class="emoji">🧳</span>ホテルで荷物ピックアップ・チェックアウト</li>
         <li class="card-item"><span class="time">17:30</span><span class="emoji">🚗</span>四日市へ車で移動</li>
         <li class="card-item"><span class="time">19:00</span><span class="emoji">🍚</span>夕食：ひつまぶし中庄（要予約）</li>
-        <li class="card-item"><span class="time">20:30</span><span class="emoji">🏨</span>湯の山温泉ホテル チェックイン</li>
-        <li class="card-item"><span class="time">22:00</span><span class="emoji">🛏️</span>就寝（湯の山温泉ホテル泊）</li>
+        <li class="card-item"><span class="time">20:30</span><span class="emoji">🏨</span>オテルドロマニエ チェックイン</li>
+        <li class="card-item"><span class="time">22:00</span><span class="emoji">🛏️</span>就寝（オテルドロマニエ泊）</li>
       </ul>
     </section>
     <section>
@@ -281,7 +267,7 @@
         <li class="card-item"><span class="time">08:00</span><span class="emoji">🍳</span>朝食（ホテル）</li>
         <li class="card-item"><span class="time">09:00</span><span class="emoji">🧳</span>チェックアウト、菰野陶芸村へ出発</li>
         <li class="card-item"><span class="time">10:00</span><span class="emoji">🎨</span>陶芸体験（手びねり）</li>
-        <li class="card-item"><span class="time">12:00</span><span class="emoji">🍽️</span>昼食（四日市またはSA／とんてきなど）</li>
+        <li class="card-item"><span class="time">12:00</span><span class="emoji">🍽️</span>四日市周辺で昼食（トンテキ等）</li>
         <li class="card-item"><span class="time">13:00</span><span class="emoji">🚗</span>神戸へ帰路出発</li>
         <li class="card-item"><span class="time">15:30</span><span class="emoji">🏠</span>神戸到着・荷下ろし</li>
         <li class="card-item"><span class="time">18:30</span><span class="emoji">🍴</span>夕食（自宅近くで軽めに外食）</li>
@@ -309,31 +295,35 @@
       <div class="cost-table">
         <div class="cost-card">
           <div class="cost-title">宿泊費</div>
-          <div class="cost-detail">レゴランドホテル（朝食付）35,000<br>湯の山温泉ホテル（朝食付）30,000</div>
+          <div class="cost-detail">レゴランドホテル（朝食付）45,000<br>オテルドロマニエ（朝食付）20,000</div>
           <div class="cost-amount">65,000円</div>
         </div>
         <div class="cost-card">
           <div class="cost-title">食費</div>
           <div class="cost-detail">
             <b>1日目</b><br>
-            ・昼食（SAのうどん・丼）：3,000<br>
-            ・夕食（サガミ）：6,000<br>
+            ・昼食（サービスエリアで食事）<br>
+            ・夕食（サガミ）<br>
             <b>2日目</b><br>
-            ・朝食（ホテル）：0（宿泊費込）<br>
-            ・昼食（レゴランド園内）：5,000<br>
-            ・夕食（ひつまぶし中庄）：10,000<br>
+            ・朝食（ホテル）<br>
+            ・昼食（レゴランド園内）<br>
+            ・夕食（ひつまぶし中庄）<br>
             <b>3日目</b><br>
-            ・朝食（ホテル）：0（宿泊費込）<br>
-            ・昼食（四日市・SA）：3,000<br>
-            ・夕食（ファミレス等）：3,000<br>
-            <b>おやつ・飲み物など（全日）</b>：2,000～3,000
+            ・朝食（ホテル）<br>
+            ・昼食（四日市周辺でトンテキ等）<br>
+            ・夕食（ファミレス等）<br>
+            <b>おやつ・飲み物など（全日）</b>
           </div>
           <div class="cost-amount">32,000～33,000円</div>
         </div>
         <div class="cost-card">
           <div class="cost-title">高速料金</div>
-          <div class="cost-detail">神戸→名古屋 4,600<br>名古屋→四日市 950<br>四日市→神戸 3,550</div>
-          <div class="cost-amount">9,100円</div>
+          <div class="cost-detail">
+            神戸西IC→名古屋IC 6,270<br>
+            名古屋IC→四日市IC 930<br>
+            四日市IC→神戸西IC 6,270
+          </div>
+          <div class="cost-amount">13,470円</div>
         </div>
         <div class="cost-card">
           <div class="cost-title">ガソリン代</div>
@@ -361,7 +351,7 @@
           <div class="cost-amount">5,000円</div>
         </div>
         <div class="cost-card total">
-          総合計：145,900～146,900円
+          総合計：149,270～150,270円
         </div>
       </div>
     </section>
