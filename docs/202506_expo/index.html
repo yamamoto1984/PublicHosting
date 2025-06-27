@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>2025年 万博おでかけしおり（カード風）</title>
+  <title>2025年 万博おでかけしおり</title>
   <style>
     body {
       font-family: 'Segoe UI', 'Meiryo', sans-serif;
@@ -72,13 +72,30 @@
       padding-bottom: .2em;
       letter-spacing: 0.04em;
     }
-    ul {
+    ul, ol {
       padding-left: 1.2em;
       margin-bottom: 2em;
     }
     li {
       margin-bottom: 0.45em;
       font-size: 0.97em;
+    }
+    .checkbox-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 2em;
+    }
+    .checkbox-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.7em;
+      font-size: 1em;
+    }
+    .checkbox-list input[type="checkbox"] {
+      accent-color: #43c6ac;
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: 0.6em;
     }
     .footer {
       text-align: center;
@@ -95,9 +112,29 @@
 <body>
   <header>
     <h1>2025年 万博おでかけしおり</h1>
-    <p>カード風デザインで予定をチェック！</p>
+    <p>当日の流れと準備リスト</p>
   </header>
   <div class="container">
+    <div class="section-title">やる事リスト</div>
+    <ul class="checkbox-list" id="todo-list">
+      <li>
+        <input type="checkbox" id="todo1">
+        <label for="todo1">7日前：パビリオン抽選予約</label>
+      </li>
+      <li>
+        <input type="checkbox" id="todo2">
+        <label for="todo2">3日前：パビリオン先着予約</label>
+      </li>
+      <li>
+        <input type="checkbox" id="todo3">
+        <label for="todo3">地図を印刷する</label>
+      </li>
+      <li>
+        <input type="checkbox" id="todo4">
+        <label for="todo4">パスポートを持ってくる</label>
+      </li>
+    </ul>
+
     <div class="section-title">当日の予定</div>
     <div class="card-list">
       <div class="card">
@@ -159,6 +196,7 @@
       <li>雨具（折りたたみ傘など）</li>
       <li>現金・ICカード</li>
       <li>身分証明書</li>
+      <li>パスポート</li>
     </ul>
 
     <div class="section-title">ワンポイントアドバイス</div>
@@ -172,5 +210,31 @@
   <div class="footer">
     © 2025 万博しおり
   </div>
+  <script>
+    // チェックボックスの状態をlocalStorageに保存・復元
+    const todoIds = ["todo1", "todo2", "todo3", "todo4"];
+    function saveTodos() {
+      const states = todoIds.map(id => document.getElementById(id).checked);
+      localStorage.setItem("expo2025_todos", JSON.stringify(states));
+    }
+    function loadTodos() {
+      const saved = localStorage.getItem("expo2025_todos");
+      if (saved) {
+        const states = JSON.parse(saved);
+        states.forEach((checked, i) => {
+          if (typeof checked === "boolean") {
+            document.getElementById(todoIds[i]).checked = checked;
+          }
+        });
+      }
+    }
+    // イベント登録
+    window.addEventListener("DOMContentLoaded", () => {
+      loadTodos();
+      todoIds.forEach(id => {
+        document.getElementById(id).addEventListener("change", saveTodos);
+      });
+    });
+  </script>
 </body>
 </html>
