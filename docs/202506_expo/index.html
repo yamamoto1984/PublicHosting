@@ -3,54 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>2025年大阪・関西万博 しおり</title>
+  <title>2025年 万博おでかけしおり（カード風）</title>
   <style>
-    body { font-family: 'Segoe UI', 'Meiryo', sans-serif; background: #f4f8fb; color: #222; margin: 0; }
-    header { background: #0078d7; color: #fff; padding: 1em; text-align: center; }
-    section { background: #fff; margin: 1em auto; padding: 1em; border-radius: 8px; max-width: 600px; box-shadow: 0 2px 8px #0001; }
-    h2 { color: #0078d7; border-bottom: 1px solid #e0e0e0; padding-bottom: .2em; }
-    ul, ol { margin: 0 0 1em 1.5em; }
-    .time-table { background: #f0f6ff; padding: .5em; border-radius: 6px; }
-    .footer { text-align: center; color: #888; margin: 2em 0 1em 0; font-size: 0.9em; }
+    body {
+      font-family: 'Segoe UI', 'Meiryo', sans-serif;
+      background: #f1f4fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #0078d7 70%, #43c6ac 100%);
+      color: #fff;
+      padding: 1.5em 1em 1em 1em;
+      text-align: center;
+      letter-spacing: 0.06em;
+    }
+    .container {
+      max-width: 700px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 1.5px 4px rgba(67,198,172,0.05);
+      padding: 1.2em 1.5em;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2em;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border-left: 6px solid #43c6ac;
+    }
+    .card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,120,215,0.13), 0 2px 8px rgba(67,198,172,0.08);
+    }
+    .card-time {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #0078d7;
+      min-width: 70px;
+      margin-top: 0.15em;
+    }
+    .card-content {
+      flex: 1;
+    }
+    .card-title {
+      font-size: 1.05em;
+      font-weight: bold;
+      margin-bottom: 0.2em;
+      color: #222;
+    }
+    .card-desc {
+      font-size: 0.96em;
+      color: #555;
+    }
+    .section-title {
+      margin-top: 2.5em;
+      margin-bottom: 0.7em;
+      color: #0078d7;
+      font-size: 1.15em;
+      border-bottom: 1.5px solid #e0e0e0;
+      padding-bottom: .2em;
+      letter-spacing: 0.04em;
+    }
+    ul {
+      padding-left: 1.2em;
+      margin-bottom: 2em;
+    }
+    li {
+      margin-bottom: 0.45em;
+      font-size: 0.97em;
+    }
+    .footer {
+      text-align: center;
+      color: #aaa;
+      margin: 2em 0 1em 0;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      .card { flex-direction: column; gap: 0.6em; padding: 1em 0.7em; }
+      .container { padding: 0 0.2em; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>2025年大阪・関西万博 しおり</h1>
-    <p>楽しい一日を計画しよう！</p>
+    <h1>2025年 万博おでかけしおり</h1>
+    <p>カード風デザインで予定をチェック！</p>
   </header>
-
-  <section>
-    <h2>基本情報</h2>
-    <ul>
-      <li><strong>開催期間：</strong>2025年4月13日～10月13日</li>
-      <li><strong>会場：</strong>大阪市此花区夢洲</li>
-      <li><strong>開場時間：</strong>9:00～22:00</li>
-      <li><strong>テーマ：</strong>いのち輝く未来社会のデザイン</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>1日のタイムスケジュール例</h2>
-    <div class="time-table">
-      <ol>
-        <li>09:00　会場到着・入場</li>
-        <li>09:30　人気パビリオン見学</li>
-        <li>11:00　体験イベント参加</li>
-        <li>12:00　ランチ（会場内フードコート）</li>
-        <li>13:00　各国パビリオン巡り</li>
-        <li>14:00　ステージショー鑑賞</li>
-        <li>15:30　休憩・お土産購入</li>
-        <li>16:00　追加パビリオン見学</li>
-        <li>17:30　夕食</li>
-        <li>18:30　ナイトイベント・ライトアップ鑑賞</li>
-        <li>20:00　会場退出</li>
-      </ol>
+  <div class="container">
+    <div class="section-title">当日の予定</div>
+    <div class="card-list">
+      <div class="card">
+        <div class="card-time">08:00</div>
+        <div class="card-content">
+          <div class="card-title">尼崎パークアンドライド</div>
+          <div class="card-desc">車を駐車し、シャトルバス等で移動開始</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">08:50</div>
+        <div class="card-content">
+          <div class="card-title">万博会場・西ゲート到着</div>
+          <div class="card-desc">入場列に並ぶ</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">12:30〜13:15</div>
+        <div class="card-content">
+          <div class="card-title">電力館「可能性のタマゴたち」</div>
+          <div class="card-desc">パビリオン見学・体験</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">14:00〜14:45</div>
+        <div class="card-content">
+          <div class="card-title">PASONA NATUREVERSE</div>
+          <div class="card-desc">パビリオン見学・体験</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">17:00</div>
+        <div class="card-content">
+          <div class="card-title">万博会場出発</div>
+          <div class="card-desc">シャトルバスで尼崎へ</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">17:30〜18:30</div>
+        <div class="card-content">
+          <div class="card-title">ひょうご楽市楽座</div>
+          <div class="card-desc">夕食・屋台・ステージ</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">18:30〜</div>
+        <div class="card-content">
+          <div class="card-title">帰宅</div>
+          <div class="card-desc">おつかれさまでした！</div>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section>
-    <h2>持ち物リスト</h2>
+    <div class="section-title">持ち物リスト</div>
     <ul>
       <li>チケット（QRコードまたは紙）</li>
       <li>スマートフォン・モバイルバッテリー</li>
@@ -59,18 +160,15 @@
       <li>現金・ICカード</li>
       <li>身分証明書</li>
     </ul>
-  </section>
 
-  <section>
-    <h2>注意事項</h2>
+    <div class="section-title">ワンポイントアドバイス</div>
     <ul>
-      <li>パビリオンによっては事前予約が必要です。</li>
-      <li>会場は広いので歩きやすい靴で。</li>
-      <li>熱中症対策をしっかりと。</li>
+      <li>パビリオンは事前予約制の場合が多いのでご注意！</li>
+      <li>暑さ・熱中症対策をしっかりと。</li>
+      <li>歩きやすい靴で参加しましょう。</li>
       <li>公式アプリで最新情報をチェック！</li>
     </ul>
-  </section>
-
+  </div>
   <div class="footer">
     © 2025 万博しおり
   </div>
