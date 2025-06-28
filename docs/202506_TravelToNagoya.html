@@ -204,6 +204,43 @@
       text-align: center;
       box-shadow: 0 4px 16px #ffe60044;
     }
+    .to-do-section {
+      background: #fff3e0;
+      border-radius: 1.2em;
+      box-shadow: var(--block-shadow);
+      padding: 1.2em 1em 1em 1em;
+      margin-bottom: 1.7em;
+      border-left: 6px solid var(--lego-yellow);
+    }
+    .to-do-section h2 {
+      color: var(--lego-yellow);
+      font-size: 1.15em;
+      margin-bottom: 0.8em;
+      letter-spacing: 0.04em;
+    }
+    .to-do-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7em;
+    }
+    .to-do-list li {
+      background: #fff;
+      border-radius: 1.2em;
+      box-shadow: 0 2px 6px #ffcc8033;
+      padding: 0.8em 1em;
+      font-size: 1em;
+      color: var(--lego-darkblue);
+      display: flex;
+      align-items: center;
+    }
+    .to-do-list .emoji {
+      font-size: 1.3em;
+      margin-right: 0.5em;
+      flex-shrink: 0;
+    }
     .advice {
       background: #e3f2fd;
       border-left: 5px solid var(--lego-blue);
@@ -216,8 +253,8 @@
     @media (max-width: 480px) {
       header h1 { font-size: 1.25em; }
       .container { padding: 0 0.2em; }
-      section, .packing-section { padding: 1em 0.4em 0.8em 0.4em; }
-      .card-item, .cost-card { padding: 0.7em 0.7em; font-size: 0.98em; }
+      section, .packing-section, .to-do-section { padding: 1em 0.4em 0.8em 0.4em; }
+      .card-item, .cost-card, .to-do-list li { padding: 0.7em 0.7em; font-size: 0.98em; }
       .packing-list li { font-size: 0.97em; min-width: 110px; }
     }
   </style>
@@ -267,10 +304,18 @@
         <li class="card-item"><span class="time">08:00</span><span class="emoji">🍳</span>朝食（ホテル）</li>
         <li class="card-item"><span class="time">09:00</span><span class="emoji">🧳</span>チェックアウト、菰野陶芸村へ出発</li>
         <li class="card-item"><span class="time">10:00</span><span class="emoji">🎨</span>陶芸体験（手びねり）</li>
-        <li class="card-item"><span class="time">13:00</span><span class="emoji">🍚</span>昼食：ひつまぶしの中庄</li>
-        <li class="card-item"><span class="time">14:00</span><span class="emoji">🚗</span>神戸へ帰路出発</li>
-        <li class="card-item"><span class="time">17:00</span><span class="emoji">🏠</span>神戸到着（予想）</li>
+        <li class="card-item"><span class="time">12:15</span><span class="emoji">🍚</span>昼食：ひつまぶしの中庄</li>
+        <li class="card-item"><span class="time">13:00</span><span class="emoji">🚗</span>神戸へ帰路出発</li>
+        <li class="card-item"><span class="time">16:00</span><span class="emoji">🏠</span>神戸到着（予想）</li>
         <li class="card-item"><span class="time">18:30</span><span class="emoji">🍴</span>夕食（自宅近くで軽めに外食）</li>
+      </ul>
+    </section>
+    <section class="to-do-section">
+      <h2>やることリスト</h2>
+      <ul class="to-do-list">
+        <li><span class="emoji">🍴</span>ごっちゃんまんまの予約（電話：059-392-2334）</li>
+        <li><span class="emoji">💦</span>レゴランドホテル「ウォーター・プレイ・エリア（水遊び場）」の予約（公式サイトから当日12:00から予約可）</li>
+        <li><span class="emoji">🎟️</span>レゴランド・ジャパンのチケット購入（公式サイトやクルック、アソビュー、セブンイレブン等で前日までに購入）</li>
       </ul>
     </section>
     <section class="packing-section">
