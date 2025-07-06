@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>2025年 万博おでかけしおり</title>
+  <title>万博しおり</title>
   <style>
     body {
       font-family: 'Segoe UI', 'Meiryo', sans-serif;
@@ -19,66 +19,50 @@
       letter-spacing: 0.06em;
     }
     .container {
-      max-width: 700px;
+      max-width: 650px;
       margin: 2em auto;
       padding: 0 1em;
-    }
-    .card-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2em;
-    }
-    .card {
       background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 1.5px 4px rgba(67,198,172,0.05);
-      padding: 1.2em 1.5em;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.2em;
-      transition: transform 0.15s, box-shadow 0.15s;
-      border-left: 6px solid #43c6ac;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
-    .card:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(0,120,215,0.13), 0 2px 8px rgba(67,198,172,0.08);
-    }
-    .card-time {
-      font-size: 1.1em;
-      font-weight: bold;
+    h2 {
       color: #0078d7;
-      min-width: 70px;
-      margin-top: 0.15em;
-    }
-    .card-content {
-      flex: 1;
-    }
-    .card-title {
-      font-size: 1.05em;
-      font-weight: bold;
-      margin-bottom: 0.2em;
-      color: #222;
-    }
-    .card-desc {
-      font-size: 0.96em;
-      color: #555;
-    }
-    .section-title {
-      margin-top: 2.5em;
-      margin-bottom: 0.7em;
-      color: #0078d7;
-      font-size: 1.15em;
-      border-bottom: 1.5px solid #e0e0e0;
+      border-bottom: 2px solid #e6f4fa;
       padding-bottom: .2em;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      font-size: 1.15em;
       letter-spacing: 0.04em;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5em 0;
+      background: #f8fbfd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 0.9em 0.5em;
+      text-align: left;
+    }
+    th {
+      background: #e6f4fa;
+      color: #0078d7;
+      font-weight: bold;
+      border-bottom: 2px solid #b8e2f2;
+    }
+    tr:not(:last-child) td {
+      border-bottom: 1px solid #e0e0e0;
+    }
     ul, ol {
-      padding-left: 1.2em;
-      margin-bottom: 2em;
+      margin-bottom: 1.5em;
+      padding-left: 1.5em;
     }
     li {
-      margin-bottom: 0.45em;
-      font-size: 0.97em;
+      margin-bottom: 0.5em;
+      font-size: 1em;
     }
     .checkbox-list {
       list-style: none;
@@ -126,150 +110,128 @@
       font-size: 0.9em;
     }
     @media (max-width: 600px) {
-      .card { flex-direction: column; gap: 0.6em; padding: 1em 0.7em; }
-      .container { padding: 0 0.2em; }
+      .container { padding: 0.5em; }
+      th, td { padding: 0.7em 0.3em; font-size: 1em; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>2025年 万博おでかけしおり</h1>
-    <p>当日の流れと準備リスト</p>
+    <h1>万博しおり</h1>
+    <p>当日の流れ・準備リスト・便利リンク</p>
   </header>
   <div class="container">
-    <div class="section-title">やる事リスト</div>
-    <ul class="checkbox-list" id="todo-list">
-      <li>
-        <input type="checkbox" id="todo1">
-        <label for="todo1">7日前：パビリオン抽選予約</label>
-      </li>
-      <li>
-        <input type="checkbox" id="todo2">
-        <label for="todo2">3日前：パビリオン先着予約</label>
-      </li>
-      <li>
-        <input type="checkbox" id="todo3">
-        <label for="todo3">地図を印刷する</label>
-      </li>
-      <li>
-        <input type="checkbox" id="todo4">
-        <label for="todo4">パスポートを持ってくる</label>
-      </li>
+
+    <h2>やる事リスト</h2>
+    <ul class="checkbox-list">
+      <li><input type="checkbox" id="todo1"><label for="todo1">7日前：パビリオン抽選予約（オーストラリア館）</label></li>
+      <li><input type="checkbox" id="todo2"><label for="todo2">3日前：パビリオン先着予約</label></li>
+      <li><input type="checkbox" id="todo3"><label for="todo3">地図を印刷する</label></li>
+      <li><input type="checkbox" id="todo4"><label for="todo4">パスポートを持ってくる</label></li>
+      <li><input type="checkbox" id="todo5"><label for="todo5">パーク＆ライドの予約・確認</label></li>
+      <li><input type="checkbox" id="todo6"><label for="todo6">チケット（QRコード）の用意</label></li>
+      <li><input type="checkbox" id="todo7"><label for="todo7">モバイルバッテリー・充電器の準備</label></li>
+      <li><input type="checkbox" id="todo8"><label for="todo8">飲み物・タオル・帽子の準備</label></li>
+      <li><input type="checkbox" id="todo9"><label for="todo9">雨具の準備</label></li>
+      <li><input type="checkbox" id="todo10"><label for="todo10">現金・ICカード・クレジットカードの確認</label></li>
+      <li><input type="checkbox" id="todo11"><label for="todo11">身分証明書の用意</label></li>
+      <li><input type="checkbox" id="todo12"><label for="todo12">大型荷物・持込禁止物のチェック</label></li>
     </ul>
 
-    <div class="section-title">当日の予定</div>
-    <div class="card-list">
-      <div class="card">
-        <div class="card-time">08:00</div>
-        <div class="card-content">
-          <div class="card-title">尼崎パークアンドライド</div>
-          <div class="card-desc">車を駐車し、シャトルバス等で移動開始</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-time">08:50</div>
-        <div class="card-content">
-          <div class="card-title">万博会場・西ゲート到着</div>
-          <div class="card-desc">入場列に並ぶ</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-time">12:30〜13:15</div>
-        <div class="card-content">
-          <div class="card-title">電力館「可能性のタマゴたち」</div>
-          <div class="card-desc">パビリオン見学・体験</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-time">14:00〜14:45</div>
-        <div class="card-content">
-          <div class="card-title">PASONA NATUREVERSE</div>
-          <div class="card-desc">パビリオン見学・体験</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-time">17:00</div>
-        <div class="card-content">
-          <div class="card-title">万博会場出発</div>
-          <div class="card-desc">シャトルバスで尼崎へ</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-time">17:30〜18:30</div>
-        <div class="card-content">
-          <div class="card-title">ひょうご楽市楽座</div>
-          <div class="card-desc">夕食・屋台・ステージ</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-time">18:30〜</div>
-        <div class="card-content">
-          <div class="card-title">帰宅</div>
-          <div class="card-desc">おつかれさまでした！</div>
-        </div>
-      </div>
-    </div>
+    <h2>当日スケジュール</h2>
+    <table>
+      <tr>
+        <th>時間</th>
+        <th>内容</th>
+      </tr>
+      <tr>
+        <td>08:00</td>
+        <td>尼崎パークアンドライド到着</td>
+      </tr>
+      <tr>
+        <td>08:10～08:20</td>
+        <td>シャトルバス乗車</td>
+      </tr>
+      <tr>
+        <td>08:40～08:50</td>
+        <td>万博会場・西ゲート到着、入場列に並ぶ</td>
+      </tr>
+      <tr>
+        <td>09:00～10:45</td>
+        <td>先着並んで見学（クウェート館など）</td>
+      </tr>
+      <tr>
+        <td>10:45～11:15</td>
+        <td>オーストラリアパビリオン</td>
+      </tr>
+      <tr>
+        <td>12:30～13:15</td>
+        <td>電力館「可能性のタマゴたち」</td>
+      </tr>
+      <tr>
+        <td>14:00～14:45</td>
+        <td>PASONA NATUREVERSE</td>
+      </tr>
+      <tr>
+        <td>15:00以降</td>
+        <td>当日予約、または並んで入れるパビリオン</td>
+      </tr>
+      <tr>
+        <td>17:00</td>
+        <td>万博会場出発（シャトルバスで尼崎へ）</td>
+      </tr>
+      <tr>
+        <td>17:30～18:30</td>
+        <td>ひょうご楽市楽座（夕食・屋台・ステージ）</td>
+      </tr>
+      <tr>
+        <td>18:30～</td>
+        <td>帰宅</td>
+      </tr>
+    </table>
 
-    <div class="section-title">持ち物リスト</div>
+    <h2>持ち物リスト</h2>
     <ul>
       <li>チケット（QRコードまたは紙）</li>
       <li>スマートフォン・モバイルバッテリー</li>
       <li>飲み物・タオル・帽子</li>
       <li>雨具（折りたたみ傘など）</li>
-      <li>現金・ICカード</li>
+      <li>現金・ICカード・クレジットカード</li>
       <li>身分証明書</li>
       <li>パスポート</li>
     </ul>
 
-    <div class="section-title">ワンポイントアドバイス</div>
-    <ul>
-      <li>パビリオンは事前予約制の場合が多いのでご注意！</li>
-      <li>暑さ・熱中症対策をしっかりと。</li>
-      <li>歩きやすい靴で参加しましょう。</li>
-      <li>公式アプリで最新情報をチェック！</li>
-    </ul>
-
-    <div class="section-title">使えるサイトリンク集</div>
+    <h2>便利サイトリンク集</h2>
     <ul class="link-list">
       <li>
-        <a href="https://exportal.app/" target="_blank" rel="noopener">EXPO Portal（有志作成・非公式予約/情報サポート）</a>
+        <a href="https://exportal.app/" target="_blank" rel="noopener">
+          EXPO Portal（有志・非公式予約/情報サポート）
+        </a>
       </li>
       <li>
-        <a href="https://expo2025.fun/" target="_blank" rel="noopener">万博GO（パビリオン・グルメ・レビュー）</a>
+        <a href="https://expo2025.fun/" target="_blank" rel="noopener">
+          万博GO（パビリオン・グルメ・レビュー）
+        </a>
       </li>
       <li>
-        <a href="https://k-sakanoshita.github.io/expo2025-maniacs" target="_blank" rel="noopener">expo2025-maniacs（万博マニア向け情報）</a>
+        <a href="https://k-sakanoshita.github.io/expo2025-maniacs" target="_blank" rel="noopener">
+          expo2025-maniacs（万博マニア向け情報）
+        </a>
+      </li>
+      <li>
+        <a href="https://www.expo2025.or.jp/" target="_blank" rel="noopener">
+          万博公式サイト
+        </a>
+      </li>
+      <li>
+        <a href="https://cancel-machi.com/%E3%82%B7%E3%82%B0%E3%83%8D%E3%83%81%E3%83%A3%E3%83%BC/top" target="_blank" rel="noopener">
+          シグネチャーパビリオン キャンセル待ち（整理券申込サイト）
+        </a>
       </li>
     </ul>
   </div>
   <div class="footer">
     © 2025 万博しおり
   </div>
-  <script>
-    // チェックボックスの状態をlocalStorageに保存・復元
-    const todoIds = ["todo1", "todo2", "todo3", "todo4"];
-    function saveTodos() {
-      const states = todoIds.map(id => document.getElementById(id).checked);
-      localStorage.setItem("expo2025_todos", JSON.stringify(states));
-    }
-    function loadTodos() {
-      const saved = localStorage.getItem("expo2025_todos");
-      if (saved) {
-        const states = JSON.parse(saved);
-        states.forEach((checked, i) => {
-          if (typeof checked === "boolean") {
-            document.getElementById(todoIds[i]).checked = checked;
-          }
-        });
-      }
-    }
-    // イベント登録
-    window.addEventListener("DOMContentLoaded", () => {
-      loadTodos();
-      todoIds.forEach(id => {
-        document.getElementById(id).addEventListener("change", saveTodos);
-      });
-    });
-  </script>
 </body>
 </html>
