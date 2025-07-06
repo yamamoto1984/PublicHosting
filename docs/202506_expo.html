@@ -35,35 +35,6 @@
       font-size: 1.15em;
       letter-spacing: 0.04em;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5em 0;
-      background: #f8fbfd;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    th, td {
-      padding: 0.9em 0.5em;
-      text-align: left;
-    }
-    th {
-      background: #e6f4fa;
-      color: #0078d7;
-      font-weight: bold;
-      border-bottom: 2px solid #b8e2f2;
-    }
-    tr:not(:last-child) td {
-      border-bottom: 1px solid #e0e0e0;
-    }
-    ul, ol {
-      margin-bottom: 1.5em;
-      padding-left: 1.5em;
-    }
-    li {
-      margin-bottom: 0.5em;
-      font-size: 1em;
-    }
     .checkbox-list {
       list-style: none;
       padding-left: 0;
@@ -80,6 +51,55 @@
       width: 1.2em;
       height: 1.2em;
       margin-right: 0.6em;
+    }
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      margin-bottom: 2em;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 1.5px 4px rgba(67,198,172,0.05);
+      padding: 1.2em 1.5em;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2em;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border-left: 6px solid #43c6ac;
+    }
+    .card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,120,215,0.13), 0 2px 8px rgba(67,198,172,0.08);
+    }
+    .card-time {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #0078d7;
+      min-width: 70px;
+      margin-top: 0.15em;
+    }
+    .card-content {
+      flex: 1;
+    }
+    .card-title {
+      font-size: 1.05em;
+      font-weight: bold;
+      margin-bottom: 0.2em;
+      color: #222;
+    }
+    .card-desc {
+      font-size: 0.96em;
+      color: #555;
+    }
+    ul, ol {
+      margin-bottom: 1.5em;
+      padding-left: 1.5em;
+    }
+    li {
+      margin-bottom: 0.5em;
+      font-size: 1em;
     }
     .link-list {
       margin: 1.5em 0 2em 0;
@@ -111,7 +131,6 @@
     }
     @media (max-width: 600px) {
       .container { padding: 0.5em; }
-      th, td { padding: 0.7em 0.3em; font-size: 1em; }
     }
   </style>
 </head>
@@ -124,71 +143,93 @@
 
     <h2>やる事リスト</h2>
     <ul class="checkbox-list">
-      <li><input type="checkbox" id="todo1"><label for="todo1">7日前：パビリオン抽選予約（オーストラリア館）</label></li>
-      <li><input type="checkbox" id="todo2"><label for="todo2">3日前：パビリオン先着予約</label></li>
-      <li><input type="checkbox" id="todo3"><label for="todo3">地図を印刷する</label></li>
+      <li><input type="checkbox" id="todo1"><label for="todo1">3日前：パビリオン先着予約</label></li>
+      <li><input type="checkbox" id="todo2"><label for="todo2">地図を印刷する</label></li>
+      <li><input type="checkbox" id="todo3"><label for="todo3">チケットを印刷する</label></li>
       <li><input type="checkbox" id="todo4"><label for="todo4">パスポートを持ってくる</label></li>
-      <li><input type="checkbox" id="todo5"><label for="todo5">パーク＆ライドの予約・確認</label></li>
-      <li><input type="checkbox" id="todo6"><label for="todo6">チケット（QRコード）の用意</label></li>
-      <li><input type="checkbox" id="todo7"><label for="todo7">モバイルバッテリー・充電器の準備</label></li>
-      <li><input type="checkbox" id="todo8"><label for="todo8">飲み物・タオル・帽子の準備</label></li>
-      <li><input type="checkbox" id="todo9"><label for="todo9">雨具の準備</label></li>
-      <li><input type="checkbox" id="todo10"><label for="todo10">現金・ICカード・クレジットカードの確認</label></li>
-      <li><input type="checkbox" id="todo11"><label for="todo11">身分証明書の用意</label></li>
-      <li><input type="checkbox" id="todo12"><label for="todo12">大型荷物・持込禁止物のチェック</label></li>
+      <li><input type="checkbox" id="todo5"><label for="todo5">熱中症対策</label></li>
     </ul>
 
     <h2>当日スケジュール</h2>
-    <table>
-      <tr>
-        <th>時間</th>
-        <th>内容</th>
-      </tr>
-      <tr>
-        <td>08:00</td>
-        <td>尼崎パークアンドライド到着</td>
-      </tr>
-      <tr>
-        <td>08:10～08:20</td>
-        <td>シャトルバス乗車</td>
-      </tr>
-      <tr>
-        <td>08:40～08:50</td>
-        <td>万博会場・西ゲート到着、入場列に並ぶ</td>
-      </tr>
-      <tr>
-        <td>09:00～10:45</td>
-        <td>先着並んで見学（クウェート館など）</td>
-      </tr>
-      <tr>
-        <td>10:45～11:15</td>
-        <td>オーストラリアパビリオン</td>
-      </tr>
-      <tr>
-        <td>12:30～13:15</td>
-        <td>電力館「可能性のタマゴたち」</td>
-      </tr>
-      <tr>
-        <td>14:00～14:45</td>
-        <td>PASONA NATUREVERSE</td>
-      </tr>
-      <tr>
-        <td>15:00以降</td>
-        <td>当日予約、または並んで入れるパビリオン</td>
-      </tr>
-      <tr>
-        <td>17:00</td>
-        <td>万博会場出発（シャトルバスで尼崎へ）</td>
-      </tr>
-      <tr>
-        <td>17:30～18:30</td>
-        <td>ひょうご楽市楽座（夕食・屋台・ステージ）</td>
-      </tr>
-      <tr>
-        <td>18:30～</td>
-        <td>帰宅</td>
-      </tr>
-    </table>
+    <div class="card-list">
+      <div class="card">
+        <div class="card-time">08:00</div>
+        <div class="card-content">
+          <div class="card-title">尼崎パークアンドライド到着</div>
+          <div class="card-desc">車を駐車し、シャトルバス等で移動開始</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">08:10～08:20</div>
+        <div class="card-content">
+          <div class="card-title">シャトルバス乗車</div>
+          <div class="card-desc">会場までの移動</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">08:40～08:50</div>
+        <div class="card-content">
+          <div class="card-title">万博会場・西ゲート到着、入場列に並ぶ</div>
+          <div class="card-desc">入場準備</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">09:00～10:45</div>
+        <div class="card-content">
+          <div class="card-title">先着並んで見学（クウェート館など）</div>
+          <div class="card-desc">予約不要のパビリオンを見学</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">10:45～11:15</div>
+        <div class="card-content">
+          <div class="card-title">オーストラリアパビリオン</div>
+          <div class="card-desc">7日前抽選予約当選枠</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">12:30～13:15</div>
+        <div class="card-content">
+          <div class="card-title">電力館「可能性のタマゴたち」</div>
+          <div class="card-desc">パビリオン見学・体験</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">14:00～14:45</div>
+        <div class="card-content">
+          <div class="card-title">PASONA NATUREVERSE</div>
+          <div class="card-desc">パビリオン見学・体験</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">15:00以降</div>
+        <div class="card-content">
+          <div class="card-title">当日予約、または並んで入れるパビリオン</div>
+          <div class="card-desc">午後の自由行動</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">17:00</div>
+        <div class="card-content">
+          <div class="card-title">万博会場出発</div>
+          <div class="card-desc">シャトルバスで尼崎へ</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">17:30～18:30</div>
+        <div class="card-content">
+          <div class="card-title">ひょうご楽市楽座</div>
+          <div class="card-desc">夕食・屋台・ステージ</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-time">18:30～</div>
+        <div class="card-content">
+          <div class="card-title">帰宅</div>
+          <div class="card-desc">おつかれさまでした！</div>
+        </div>
+      </div>
+    </div>
 
     <h2>持ち物リスト</h2>
     <ul>
