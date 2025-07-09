@@ -40,11 +40,6 @@
       margin-top: 0.2em;
       word-break: break-all;
     }
-    @media (max-width: 600px) {
-      .container { padding: 0.5em; }
-      .card { padding: 0.8em 0.7em; }
-      .time { font-size: 1em; }
-    }
     h2 {
       color: #0078d7;
       border-bottom: 2px solid #e6f4fa;
@@ -61,6 +56,20 @@
     li {
       margin-bottom: 0.5em;
       font-size: 1em;
+    }
+    .pavilion-section {
+      margin-bottom: 1.5em;
+    }
+    .pavilion-title {
+      font-weight: bold;
+      color: #0078d7;
+      margin-bottom: 0.3em;
+      font-size: 1em;
+    }
+    .pavilion-list {
+      margin: 0.3em 0 1em 1.2em;
+      padding: 0;
+      list-style: disc;
     }
     .link-list {
       margin: 1.5em 0 2em 0;
@@ -90,6 +99,11 @@
       margin: 2em 0 1em 0;
       font-size: 0.9em;
     }
+    @media (max-width: 600px) {
+      .container { padding: 0.5em; }
+      .card { padding: 0.8em 0.7em; }
+      .time { font-size: 1em; }
+    }
   </style>
 </head>
 <body>
@@ -109,11 +123,6 @@
       <div class="card">
         <div class="time">08:40～09:00</div>
         <div class="event-title">万博会場入場</div>
-      </div>
-      <div class="card">
-        <div class="time">09:00～10:00</div>
-        <div class="event-title">クウェート館</div>
-        <div class="desc">当日並んで入る（予約不要）</div>
       </div>
       <div class="card">
         <div class="time">10:45～11:15</div>
@@ -144,6 +153,22 @@
         <div class="event-title">ひょうご楽市楽座</div>
         <div class="desc">食事・屋台・ステージ</div>
       </div>
+    </div>
+
+    <h2>行きたいパビリオン一覧</h2>
+    <div class="pavilion-section">
+      <div class="pavilion-title">■ 予約が必要なパビリオン</div>
+      <ul class="pavilion-list">
+        <li>住友館（事前予約制）</li>
+        <li>パナソニックパビリオン（事前予約制）</li>
+        <li>おばけワンダーランド（事前予約制）</li>
+      </ul>
+      <div class="pavilion-title">■ 並んで入れるパビリオン</div>
+      <ul class="pavilion-list">
+        <li>ドイツ館（予約不要・当日並んで入場）</li>
+        <li>クウェート館（予約不要・当日並んで入場）</li>
+        <li>スペイン館（予約不要・当日並んで入場）</li>
+      </ul>
     </div>
 
     <h2>やる事リスト</h2>
