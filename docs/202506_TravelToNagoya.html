@@ -4,400 +4,152 @@
   <meta charset="UTF-8">
   <title>名古屋・四日市・湯の山温泉 旅行しおり</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    :root {
-      --lego-yellow: #ffe600;
-      --lego-red: #ff5f5f;
-      --lego-blue: #4fc3f7;
-      --lego-green: #81c784;
-      --lego-darkblue: #153e7e;
-      --main-bg: #f8fafc;
-      --section-bg: #fff;
-      --block-shadow: 0 4px 12px rgba(200,200,200,0.18);
-      --card-shadow: 0 2px 8px #b3c6e7;
-    }
-    body {
-      font-family: 'Segoe UI', 'Arial Rounded MT Bold', 'Yu Gothic', 'Meiryo', sans-serif;
-      background: var(--main-bg);
-      color: var(--lego-darkblue);
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: linear-gradient(90deg, var(--lego-yellow) 60%, var(--lego-blue) 100%);
-      color: var(--lego-darkblue);
-      text-align: center;
-      padding: 2em 1em 1.2em 1em;
-      border-radius: 0 0 2em 2em;
-      box-shadow: var(--block-shadow);
-      position: relative;
-      letter-spacing: 0.02em;
-    }
-    header h1 {
-      font-family: 'Arial Black','Arial Rounded MT Bold','Yu Gothic',sans-serif;
-      font-size: 2em;
-      margin: 0 0 0.4em 0;
-      letter-spacing: 0.08em;
-      text-shadow: 2px 2px 0 #fff8, 4px 4px 0 #ffce0033;
-    }
-    header .subtitle {
-      font-size: 1em;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5em;
-    }
-    .lego-dot {
-      display: inline-block;
-      width: 1.2em;
-      height: 1.2em;
-      border-radius: 50%;
-      margin: 0 0.13em;
-      vertical-align: middle;
-      box-shadow: 0 2px 4px #bbb8;
-    }
-    .dot-yellow { background: var(--lego-yellow); border: 2px solid #ffb700;}
-    .dot-red { background: var(--lego-red); border: 2px solid #ff1744;}
-    .dot-blue { background: var(--lego-blue); border: 2px solid #0288d1;}
-    .dot-green { background: var(--lego-green); border: 2px solid #388e3c;}
-    .container {
-      max-width: 540px;
-      margin: 2em auto;
-      padding: 0 1em;
-    }
-    section {
-      background: var(--section-bg);
-      border-radius: 1.2em;
-      margin-bottom: 1.7em;
-      box-shadow: var(--block-shadow);
-      padding: 1.2em 1em 1em 1em;
-      position: relative;
-      overflow: hidden;
-    }
-    section h2 {
-      font-size: 1.2em;
-      color: var(--lego-red);
-      margin: 0 0 0.7em 0;
-      letter-spacing: 0.04em;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-    }
-    section h2::before {
-      content: "🧩";
-      margin-right: 0.4em;
-      font-size: 1.3em;
-      vertical-align: middle;
-    }
-    .card-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7em;
-      margin-bottom: 0.7em;
-      padding: 0;
-      list-style: none;
-    }
-    .card-item {
-      background: linear-gradient(90deg, #fff 70%, #e3f2fd 100%);
-      border-radius: 1em;
-      box-shadow: var(--card-shadow);
-      display: flex;
-      align-items: flex-start;
-      padding: 0.7em 1em;
-      gap: 1em;
-      font-size: 1em;
-      border-left: 6px solid var(--lego-yellow);
-      position: relative;
-    }
-    .card-item .time {
-      font-weight: bold;
-      color: var(--lego-blue);
-      min-width: 3.5em;
-      font-size: 1.05em;
-      flex-shrink: 0;
-    }
-    .card-item .emoji {
-      font-size: 1.3em;
-      margin-right: 0.4em;
-      flex-shrink: 0;
-    }
-    .packing-section {
-      background: #e8f5e9;
-      border-radius: 1.2em;
-      box-shadow: var(--block-shadow);
-      padding: 1.2em 1em 1em 1em;
-      margin-bottom: 1.7em;
-      border: 2.5px solid var(--lego-green);
-    }
-    .packing-section h2 {
-      color: var(--lego-green);
-      font-size: 1.15em;
-      margin-bottom: 0.8em;
-      letter-spacing: 0.04em;
-    }
-    .packing-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .packing-list li {
-      background: #fff;
-      border-radius: 1.2em;
-      box-shadow: 0 2px 6px #b3c6e7;
-      margin: 0.4em 0.6em 0.4em 0;
-      padding: 0.6em 1em 0.6em 0.8em;
-      font-size: 1em;
-      color: var(--lego-darkblue);
-      display: flex;
-      align-items: center;
-      flex-basis: 48%;
-      min-width: 140px;
-      max-width: 98%;
-    }
-    .packing-list .icon {
-      margin-right: 0.5em;
-      font-size: 1.2em;
-      flex-shrink: 0;
-    }
-    .cost-table {
-      width: 100%;
-      margin: 1em 0 0.5em 0;
-      font-size: 0.99em;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7em;
-    }
-    .cost-card {
-      background: linear-gradient(90deg, #fff 70%, #e8f5e9 100%);
-      border-radius: 1em;
-      box-shadow: var(--card-shadow);
-      padding: 0.8em 1.1em;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2em;
-      border-left: 6px solid var(--lego-green);
-      position: relative;
-    }
-    .cost-card .cost-title {
-      font-weight: bold;
-      color: var(--lego-green);
-      font-size: 1.05em;
-      margin-bottom: 0.1em;
-    }
-    .cost-card .cost-detail {
-      color: #555;
-      font-size: 0.98em;
-      margin-bottom: 0.1em;
-    }
-    .cost-card .cost-amount {
-      color: #e65100;
-      font-weight: bold;
-      font-size: 1.1em;
-      margin-top: 0.1em;
-    }
-    .cost-card.total {
-      background: linear-gradient(90deg, #fffde7 70%, #fff9c4 100%);
-      border-left: 6px solid var(--lego-yellow);
-      color: #e65100;
-      font-size: 1.1em;
-      font-weight: bold;
-      text-align: center;
-      box-shadow: 0 4px 16px #ffe60044;
-    }
-    .to-do-section {
-      background: #fff3e0;
-      border-radius: 1.2em;
-      box-shadow: var(--block-shadow);
-      padding: 1.2em 1em 1em 1em;
-      margin-bottom: 1.7em;
-      border-left: 6px solid var(--lego-yellow);
-    }
-    .to-do-section h2 {
-      color: var(--lego-yellow);
-      font-size: 1.15em;
-      margin-bottom: 0.8em;
-      letter-spacing: 0.04em;
-    }
-    .to-do-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7em;
-    }
-    .to-do-list li {
-      background: #fff;
-      border-radius: 1.2em;
-      box-shadow: 0 2px 6px #ffcc8033;
-      padding: 0.8em 1em;
-      font-size: 1em;
-      color: var(--lego-darkblue);
-      display: flex;
-      align-items: center;
-    }
-    .to-do-list .emoji {
-      font-size: 1.3em;
-      margin-right: 0.5em;
-      flex-shrink: 0;
-    }
-    .advice {
-      background: #e3f2fd;
-      border-left: 5px solid var(--lego-blue);
-      border-radius: 0.6em;
-      padding: 1em 1em 1em 1.2em;
-      margin-bottom: 2em;
-      font-size: 1em;
-      color: #1976d2;
-    }
-    @media (max-width: 480px) {
-      header h1 { font-size: 1.25em; }
-      .container { padding: 0 0.2em; }
-      section, .packing-section, .to-do-section { padding: 1em 0.4em 0.8em 0.4em; }
-      .card-item, .cost-card, .to-do-list li { padding: 0.7em 0.7em; font-size: 0.98em; }
-      .packing-list li { font-size: 0.97em; min-width: 110px; }
-    }
+    .lego-dot { display:inline-block; width:1.2em; height:1.2em; border-radius:50%; margin:0 0.13em; vertical-align:middle; }
+    .dot-yellow { background:#ffe600; border:2px solid #ffb700;}
+    .dot-red { background:#ff5f5f; border:2px solid #ff1744;}
+    .dot-blue { background:#4fc3f7; border:2px solid #0288d1;}
+    .dot-green { background:#81c784; border:2px solid #388e3c;}
   </style>
 </head>
-<body>
-  <header>
-    <span class="lego-dot dot-yellow"></span>
-    <span class="lego-dot dot-red"></span>
-    <span class="lego-dot dot-blue"></span>
-    <span class="lego-dot dot-green"></span>
-    <h1>名古屋・四日市・湯の山温泉 旅行しおり</h1>
-    <div class="subtitle">2025年7月18日（金）～7月20日（日）</div>
-    <span class="lego-dot dot-yellow"></span>
-    <span class="lego-dot dot-red"></span>
-    <span class="lego-dot dot-blue"></span>
-    <span class="lego-dot dot-green"></span>
-  </header>
-  <div class="container">
-    <section class="to-do-section">
-      <h2>やることリスト</h2>
-      <ul class="to-do-list">
-        <li><span class="emoji">💦</span>レゴランドホテル「ウォーター・プレイ・エリア（水遊び場）」の予約（公式サイトから当日12:00から予約可）</li>
+<body class="bg-light text-dark">
+  <div class="container my-4">
+    <div class="text-center mb-4">
+      <span class="lego-dot dot-yellow"></span>
+      <span class="lego-dot dot-red"></span>
+      <span class="lego-dot dot-blue"></span>
+      <span class="lego-dot dot-green"></span>
+      <h1 class="fw-bold mt-2">名古屋・四日市・湯の山温泉 旅行しおり</h1>
+      <div>2025年7月18日（金）～7月20日（日）</div>
+      <span class="lego-dot dot-yellow"></span>
+      <span class="lego-dot dot-red"></span>
+      <span class="lego-dot dot-blue"></span>
+      <span class="lego-dot dot-green"></span>
+    </div>
+
+    <section class="mb-4">
+      <h2 class="fs-5 text-warning"><span>🧩</span>やることリスト</h2>
+      <ul class="list-group">
+        <li class="list-group-item">💦 レゴランドホテル「ウォーター・プレイ・エリア（水遊び場）」の予約（公式サイトから当日12:00から予約可）</li>
       </ul>
     </section>
-    <section>
-      <h2>7月18日（金）</h2>
-      <ul class="card-list">
-        <li class="card-item"><span class="time">12:00</span><span class="emoji">🚗</span>神戸出発（自家用車）</li>
-        <li class="card-item"><span class="time">14:00</span><span class="emoji">🍜</span>サービスエリアで食事</li>
-        <li class="card-item"><span class="time">15:30</span><span class="emoji">🅿️</span>金城ふ頭駐車場到着</li>
-        <li class="card-item"><span class="time">16:00</span><span class="emoji">🏨</span>レゴランドホテル チェックイン</li>
-        <li class="card-item"><span class="time">16:30</span><span class="emoji">💦</span>ホテルの水遊び場で遊ぶ（事前予約制）</li>
-        <li class="card-item"><span class="time">19:00</span><span class="emoji">🍽️</span>夕食：サガミ</li>
-        <li class="card-item"><span class="time">21:00</span><span class="emoji">🛏️</span>就寝（レゴランドホテル泊）</li>
+
+    <section class="mb-4">
+      <h2 class="fs-5 text-danger"><span>🧩</span>7月18日（金）</h2>
+      <ul class="list-group mb-2">
+        <li class="list-group-item">12:00 🚗 神戸出発（自家用車）</li>
+        <li class="list-group-item">14:00 🍜 サービスエリアで食事</li>
+        <li class="list-group-item">15:30 🅿️ 金城ふ頭駐車場到着</li>
+        <li class="list-group-item">16:00 🏨 レゴランドホテル チェックイン</li>
+        <li class="list-group-item">16:30 💦 ホテルの水遊び場で遊ぶ（事前予約制）</li>
+        <li class="list-group-item">19:00 🍽️ 夕食：サガミ</li>
+        <li class="list-group-item">21:00 🛏️ 就寝（レゴランドホテル泊）</li>
+      </ul>
+      <h2 class="fs-5 text-danger"><span>🧩</span>7月19日（土）</h2>
+      <ul class="list-group mb-2">
+        <li class="list-group-item">07:30 🍳 朝食（ホテルビュッフェ）</li>
+        <li class="list-group-item">08:30 🧳 レゴランドホテル チェックアウト＆荷物預け</li>
+        <li class="list-group-item">09:00 🎡 レゴランド入園・園内で自由行動</li>
+        <li class="list-group-item">12:00 🍔 昼食（園内レストラン）</li>
+        <li class="list-group-item">17:30 🚗 四日市へ車で移動</li>
+        <li class="list-group-item">19:00 🍴 夕食：ごっちゃんまんま</li>
+        <li class="list-group-item">20:30 🏨 オテルドロマニエ チェックイン</li>
+        <li class="list-group-item">22:00 🛏️ 就寝（オテルドロマニエ泊）</li>
+      </ul>
+      <h2 class="fs-5 text-danger"><span>🧩</span>7月20日（日）</h2>
+      <ul class="list-group">
+        <li class="list-group-item">08:00 🍳 朝食（ホテル）</li>
+        <li class="list-group-item">09:00 🧳 チェックアウト、菰野陶芸村へ出発</li>
+        <li class="list-group-item">10:00 🎨 陶芸体験（手びねり）</li>
+        <li class="list-group-item">12:15 🍚 昼食：ひつまぶしの中庄</li>
+        <li class="list-group-item">13:00 🛣️ EXPASA御在所SAでお土産購入</li>
+        <li class="list-group-item">13:30 🚗 神戸へ帰路出発</li>
+        <li class="list-group-item">16:30 🏠 神戸到着（予想）</li>
+        <li class="list-group-item">18:30 🍴 夕食（自宅近くで軽めに外食）</li>
       </ul>
     </section>
-    <section>
-      <h2>7月19日（土）</h2>
-      <ul class="card-list">
-        <li class="card-item"><span class="time">07:30</span><span class="emoji">🍳</span>朝食（ホテルビュッフェ）</li>
-        <li class="card-item"><span class="time">08:30</span><span class="emoji">🧳</span>レゴランドホテル チェックアウト＆荷物預け</li>
-        <li class="card-item"><span class="time">09:00</span><span class="emoji">🎡</span>レゴランド入園・園内で自由行動</li>
-        <li class="card-item"><span class="time">12:00</span><span class="emoji">🍔</span>昼食（園内レストラン）</li>
-        <li class="card-item"><span class="time">17:30</span><span class="emoji">🚗</span>四日市へ車で移動</li>
-        <li class="card-item"><span class="time">19:00</span><span class="emoji">🍴</span>夕食：ごっちゃんまんま</li>
-        <li class="card-item"><span class="time">20:30</span><span class="emoji">🏨</span>オテルドロマニエ チェックイン</li>
-        <li class="card-item"><span class="time">22:00</span><span class="emoji">🛏️</span>就寝（オテルドロマニエ泊）</li>
+
+    <section class="packing-section mb-4">
+      <h2 class="fs-5 text-success"><span>🧩</span>持ち物リスト</h2>
+      <ul class="list-group">
+        <li class="list-group-item">🎟️ レゴランドチケット（スマホ or 紙）★忘れずに！</li>
+        <li class="list-group-item">🔋 モバイルバッテリー</li>
+        <li class="list-group-item">🔌 充電器</li>
+        <li class="list-group-item">👚 着替え</li>
+        <li class="list-group-item">💊 酔い止め</li>
+        <li class="list-group-item">🩱 水着</li>
+        <li class="list-group-item">🩴 サンダル</li>
+        <li class="list-group-item">🧻 タオル</li>
+        <li class="list-group-item">🌂 雨具（折りたたみ傘など）</li>
+        <li class="list-group-item">🎨 陶芸用の汚れてもいい服</li>
+        <li class="list-group-item">🧃 水筒（マイボトル）</li>
+        <li class="list-group-item">🧴 日焼け止め</li>
+        <li class="list-group-item">🧊 熱中症対策グッズ</li>
       </ul>
     </section>
-    <section>
-      <h2>7月20日（日）</h2>
-      <ul class="card-list">
-        <li class="card-item"><span class="time">08:00</span><span class="emoji">🍳</span>朝食（ホテル）</li>
-        <li class="card-item"><span class="time">09:00</span><span class="emoji">🧳</span>チェックアウト、菰野陶芸村へ出発</li>
-        <li class="card-item"><span class="time">10:00</span><span class="emoji">🎨</span>陶芸体験（手びねり）</li>
-        <li class="card-item"><span class="time">12:15</span><span class="emoji">🍚</span>昼食：ひつまぶしの中庄</li>
-        <li class="card-item"><span class="time">13:00</span><span class="emoji">🛣️</span>EXPASA御在所SAでお土産購入</li>
-        <li class="card-item"><span class="time">13:30</span><span class="emoji">🚗</span>神戸へ帰路出発</li>
-        <li class="card-item"><span class="time">16:30</span><span class="emoji">🏠</span>神戸到着（予想）</li>
-        <li class="card-item"><span class="time">18:30</span><span class="emoji">🍴</span>夕食（自宅近くで軽めに外食）</li>
-      </ul>
+
+    <section class="mb-4">
+      <h2 class="fs-5 text-danger"><span>🧩</span>予算（費用）一覧</h2>
+      <table class="table table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>項目</th>
+            <th>内容・詳細</th>
+            <th>金額（円）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>宿泊費</td>
+            <td>レゴランドホテル（朝食付）45,000<br>オテルドロマニエ（朝食付）20,000</td>
+            <td>65,000</td>
+          </tr>
+          <tr>
+            <td>食費</td>
+            <td>1日目<br>・昼食：サービスエリア 3,000<br>・夕食：サガミ 6,000<br>2日目<br>・朝食：ホテル（宿泊費込）<br>・昼食：レゴランド園内 5,000<br>・夕食：ごっちゃんまんま 6,000<br>3日目<br>・朝食：ホテル（宿泊費込）<br>・昼食：ひつまぶしの中庄 10,000<br>・夕食：ファミレス等 3,000<br>全日<br>・おやつ・飲み物 3,000</td>
+            <td>35,000</td>
+          </tr>
+          <tr>
+            <td>高速料金</td>
+            <td>神戸西IC→名古屋IC 6,270<br>名古屋IC→四日市IC 930<br>四日市IC→神戸西IC 6,270</td>
+            <td>13,470</td>
+          </tr>
+          <tr>
+            <td>ガソリン代</td>
+            <td>約500km／燃費12km/L・単価180円想定</td>
+            <td>5,800</td>
+          </tr>
+          <tr>
+            <td>レゴランド入園料</td>
+            <td>大人2名 7,400×2＝14,800<br>小学生1名 5,200</td>
+            <td>20,000</td>
+          </tr>
+          <tr>
+            <td>駐車場代</td>
+            <td>金城ふ頭 1,500×2日</td>
+            <td>3,000</td>
+          </tr>
+          <tr>
+            <td>陶芸体験</td>
+            <td>2,000×3名</td>
+            <td>6,000</td>
+          </tr>
+          <tr>
+            <td>雑費・お土産</td>
+            <td>レゴランド内の買い物・お土産・その他予備費用</td>
+            <td>10,000</td>
+          </tr>
+          <tr class="table-warning">
+            <td colspan="2" class="text-center fw-bold">合計</td>
+            <td class="fw-bold">158,270</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
-    <section class="packing-section">
-      <h2>持ち物リスト</h2>
-      <ul class="packing-list">
-        <li><span class="icon">🎟️</span>レゴランドチケット（スマホ or 紙）★忘れずに！</li>
-        <li><span class="icon">🔋</span>モバイルバッテリー</li>
-        <li><span class="icon">🔌</span>充電器</li>
-        <li><span class="icon">👚</span>着替え</li>
-        <li><span class="icon">💊</span>酔い止め</li>
-        <li><span class="icon">🩱</span>水着</li>
-        <li><span class="icon">🩴</span>サンダル</li>
-        <li><span class="icon">🧻</span>タオル</li>
-        <li><span class="icon">🌂</span>雨具（折りたたみ傘など）</li>
-        <li><span class="icon">🎨</span>陶芸用の汚れてもいい服</li>
-        <li><span class="icon">🧃</span>水筒（マイボトル）</li>
-        <li><span class="icon">🧴</span>日焼け止め</li>
-        <li><span class="icon">🧊</span>熱中症対策グッズ</li>
-      </ul>
-    </section>
-    <section>
-      <h2>予算（費用）一覧</h2>
-      <div class="cost-table">
-        <div class="cost-card">
-          <span class="cost-title">宿泊費</span>
-          <span class="cost-detail">レゴランドホテル（朝食付）45,000<br>オテルドロマニエ（朝食付）20,000</span>
-          <span class="cost-amount">65,000円</span>
-        </div>
-        <div class="cost-card">
-          <span class="cost-title">食費</span>
-          <span class="cost-detail">
-            1日目<br>
-            ・昼食：サービスエリア 3,000<br>
-            ・夕食：サガミ 6,000<br>
-            2日目<br>
-            ・朝食：ホテル（宿泊費込）<br>
-            ・昼食：レゴランド園内 5,000<br>
-            ・夕食：ごっちゃんまんま 6,000<br>
-            3日目<br>
-            ・朝食：ホテル（宿泊費込）<br>
-            ・昼食：ひつまぶしの中庄 10,000<br>
-            ・夕食：ファミレス等 3,000<br>
-            全日<br>
-            ・おやつ・飲み物 3,000
-          </span>
-          <span class="cost-amount">35,000円</span>
-        </div>
-        <div class="cost-card">
-          <span class="cost-title">高速料金</span>
-          <span class="cost-detail">神戸西IC→名古屋IC 6,270<br>名古屋IC→四日市IC 930<br>四日市IC→神戸西IC 6,270</span>
-          <span class="cost-amount">13,470円</span>
-        </div>
-        <div class="cost-card">
-          <span class="cost-title">ガソリン代</span>
-          <span class="cost-detail">約500km／燃費12km/L・単価180円想定</span>
-          <span class="cost-amount">5,800円</span>
-        </div>
-        <div class="cost-card">
-          <span class="cost-title">レゴランド入園料</span>
-          <span class="cost-detail">大人2名 7,400×2＝14,800<br>小学生1名 5,200</span>
-          <span class="cost-amount">20,000円</span>
-        </div>
-        <div class="cost-card">
-          <span class="cost-title">駐車場代</span>
-          <span class="cost-detail">金城ふ頭 1,500×2日</span>
-          <span class="cost-amount">3,000円</span>
-        </div>
-        <div class="cost-card">
-          <span class="cost-title">陶芸体験</span>
-          <span class="cost-detail">2,000×3名</span>
-          <span class="cost-amount">6,000円</span>
-        </div>
-        <div class="cost-card">
-          <span class="cost-title">雑費・お土産</span>
-          <span class="cost-detail">レゴランド内の買い物・お土産・その他予備費用</span>
-          <span class="cost-amount">10,000円</span>
-        </div>
-        <div class="cost-card total">
-          合計：158,270円
-        </div>
-      </div>
-    </section>
-    <div class="advice">
+
+    <div class="alert alert-info">
       <b>アドバイス</b>
       <ul>
         <li>連休や週末は混雑しやすいので、移動・食事は余裕をもって。</li>
@@ -405,7 +157,7 @@
         <li>現地での追加支出に備え，予備費3,000〜5,000円程度を用意。</li>
         <li>各施設の予約内容・営業時間・アクセス方法を事前に再確認しましょう。</li>
       </ul>
-      <span style="font-size:1.1em;">楽しいご旅行を！🧡</span>
+      <span class="fw-bold">楽しいご旅行を！🧡</span>
     </div>
   </div>
 </body>
